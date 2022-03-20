@@ -11,10 +11,31 @@
 
 
     <TextView
-        android:id="@+id/emailTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zalogowano pomyślnie"/>
+        android:text="Zalogowano pomyślnie poprzez e-mail:"/>
+    <TextView
+        android:id="@+id/emailTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Email"/>
+    <Button
+        android:id="@+id/guzikCreateRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stwórz pokój"/>
+    <Button
+        android:id="@+id/guzikFindRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dołącz do pokoju"/>
+    <Button
+        android:id="@+id/guzikEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edytuj profil"/>
     <Button
         android:id="@+id/guzikWyloguj"
         android:layout_width="wrap_content"

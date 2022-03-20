@@ -3,18 +3,27 @@ package com.example.projekt1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.ActionBar
 import com.example.projekt1.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class Profile : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
-
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var actionBar: ActionBar
+    private lateinit var databaseReference: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        actionBar = supportActionBar!!
+        actionBar.title = "Profil"
+
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
@@ -26,7 +35,17 @@ class Profile : AppCompatActivity() {
         }
     }
     private fun checkUser(){
+        val uid= firebaseAuth.currentUser?.uid
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
         val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser != null){
+                val email= firebaseUser.email
+                binding.emailTV.text = email
+        }
+        else{
+            startActivity(Intent(this,Login::class.java))
+            finish()
+        }
     }
 
 }

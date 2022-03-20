@@ -11,19 +11,20 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.example.projekt1.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SignUp : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
-
     private lateinit var actionBar: ActionBar
-
     private lateinit var progressDialog: ProgressDialog
-
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var databaseReference: DatabaseReference
 
     private var email = ""
     private var password =""
+    private var username =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +46,10 @@ class SignUp : AppCompatActivity() {
         //firebase
         firebaseAuth= FirebaseAuth.getInstance()
 
-        binding.guzikReg.setOnClickListener{
+        binding.guzikReg.setOnClickListener {
             validateData()
         }
+
 
 
     }
@@ -55,6 +57,7 @@ class SignUp : AppCompatActivity() {
     private fun validateData() {
         email = binding.emailEt.text.toString().trim()
         password= binding.passwordEt.text.toString().trim()
+        username= binding.nameEt.text.toString().trim()
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             //zly email
@@ -67,12 +70,13 @@ class SignUp : AppCompatActivity() {
         else if(password.length < 8){
             binding.passwordEt.error = "Hasło musi zawierać conajmniej 8 znaków!"
         }
+        else if(username.length < 3 || username.length > 30 ){
+            binding.nameEt.error = "Nazwa musi zawierać od 3 do 30 znaków!"
+        }
         else{
-            //haslo poprawne
             firebaseSignUp()
         }
     }
-
     private fun firebaseSignUp(){
         progressDialog.show()
         //tworzenie konta
@@ -90,7 +94,6 @@ class SignUp : AppCompatActivity() {
             .addOnFailureListener{e->
                 progressDialog.dismiss()
                 Toast.makeText(this,"Nie udało się założyć konta, powód: ${e.message}", Toast.LENGTH_SHORT).show()
-
             }
     }
 
