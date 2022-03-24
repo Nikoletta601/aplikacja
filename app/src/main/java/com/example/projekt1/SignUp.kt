@@ -13,6 +13,7 @@ import com.example.projekt1.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SignUp : AppCompatActivity() {
 
@@ -51,8 +52,9 @@ class SignUp : AppCompatActivity() {
         }
 
 
-
     }
+
+
 
     private fun validateData() {
         email = binding.emailEt.text.toString().trim()
@@ -75,6 +77,7 @@ class SignUp : AppCompatActivity() {
         }
         else{
             firebaseSignUp()
+            saveFirestore(username,email)
         }
     }
     private fun firebaseSignUp(){
@@ -94,6 +97,21 @@ class SignUp : AppCompatActivity() {
             .addOnFailureListener{e->
                 progressDialog.dismiss()
                 Toast.makeText(this,"Nie udało się założyć konta, powód: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    fun saveFirestore(usrname: String, mail: String){
+        val db = FirebaseFirestore.getInstance()
+        val user: MutableMap<String, Any> = HashMap()
+        user["username"] = username
+        user["email"] = email
+        db.collection("Users")
+            .add(user)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Utworzono uzytkownika", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener{
+                Toast.makeText(this, "Nie udało się utworzyć uzytkownika", Toast.LENGTH_SHORT).show()
             }
     }
 

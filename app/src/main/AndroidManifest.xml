@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projekt1">
         <activity
-            android:name=".ProfileSetup"
+            android:name=".JoinRoom"
+            android:exported="false" />
+        <activity
+            android:name=".Createroom"
             android:exported="false" />
         <activity
             android:name=".Profile"

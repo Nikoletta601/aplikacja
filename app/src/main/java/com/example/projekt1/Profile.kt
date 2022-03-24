@@ -33,6 +33,14 @@ class Profile : AppCompatActivity() {
             startActivity(Intent(this,Login::class.java))
             finish()
         }
+        binding.guzikCreateRoom.setOnClickListener {
+            startActivity(Intent(this,Createroom::class.java))
+            finish()
+        }
+        binding.guzikJoinRoom.setOnClickListener {
+            startActivity(Intent(this,JoinRoom::class.java))
+            finish()
+        }
     }
     private fun checkUser(){
         val uid= firebaseAuth.currentUser?.uid
