@@ -105,8 +105,8 @@ class SignUp : AppCompatActivity() {
         val user: MutableMap<String, Any> = HashMap()
         user["username"] = username
         user["email"] = email
-        db.collection("Users")
-            .add(user)
+        db.collection("Users") //wejscie do kolekcji users, stworzenie jej jesli nie ma
+            .add(user) //dodanie uzytkownika
             .addOnSuccessListener {
                 Toast.makeText(this, "Utworzono uzytkownika", Toast.LENGTH_SHORT).show()
             }

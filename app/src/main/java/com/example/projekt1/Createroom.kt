@@ -26,6 +26,7 @@ class Createroom : AppCompatActivity() {
     private var roomname = ""
     private var roomID = ""
     private var mail =""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityCreateRoomBinding.inflate(layoutInflater)
@@ -40,19 +41,26 @@ class Createroom : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.guzikCreateRoom.setOnClickListener {
+            //sprawdzenie czy użytkownik jest zalogowany
             val firebaseUser = firebaseAuth.currentUser
             if (firebaseUser != null){
                 mail= firebaseUser.email.toString()
+            }else{
+                startActivity(Intent(this,Login::class.java))
+                finish()
             }
-
+            //przypisanie nazwy pokoju z wypełnonego okna
             roomname = binding.roomNameEt.text.toString().trim()
+            //wylosowanie id pokoju przy uzyciu funkcji
             roomID = getRandomString(5)
+            //wywolanie funckji
             saveFirestore(roomname,mail)
 
             startActivity(Intent(this, Profile::class.java))
         }
 
         binding.guzikBack.setOnClickListener{
+            //powrót do profilu
             startActivity(Intent(this, Profile::class.java))
         }
     }
@@ -60,17 +68,39 @@ class Createroom : AppCompatActivity() {
     fun saveFirestore(roomname: String, mail: String){
         val db = FirebaseFirestore.getInstance()
         val room: MutableMap<String, Any> = HashMap()
+        //zapisanie danych ze zmiennych
         room["roomname"] = roomname
         room["creator"] = mail
         room["ID"] = roomID
         db.collection("Rooms")
+            //dodanie dokumentu do kolekcji "Rooms"
             .add(room)
             .addOnSuccessListener {
-                Toast.makeText(this, "Utworzono pokój", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener{
+                Toast.makeText(this, "Utworzono pokój, ID: " + roomID, Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener{
                 Toast.makeText(this, "Nie udało się utworzyć pokoju", Toast.LENGTH_SHORT).show()
             }
+        db.collection("Rooms")
+            .get()
+            .addOnCompleteListener{
+                val user: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
+                user["email"] = mail
+                user["role"] = "moderator" //przypisanie wartosci
+                val result: StringBuffer = StringBuffer()
+                if(it.isSuccessful) {
+                    for (document in it.result!!) {
+                        val id = document.data.get("ID") //pobranie ID pokoju
+                        if (id == roomID) {
+                            val docId = document.id //pobranie uid pokoju
+                            db.collection("Rooms").document(docId)
+                                .collection("Users") // wejscie do kolekcji users w znalezionym pokoju
+                                .add(user) // dodanie uzytkownika do zakladki users w pokoju
+                        }
+                        break
+                    }
+                }
+            }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -78,6 +108,7 @@ class Createroom : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
 
+    //funkcja losująca ciąg znaków
     fun getRandomString(length: Int) : String {
         val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
         return (1..length)
