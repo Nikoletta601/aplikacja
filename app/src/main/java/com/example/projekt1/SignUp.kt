@@ -27,6 +27,9 @@ class SignUp : AppCompatActivity() {
     private var password =""
     private var username =""
 
+    private var roomname = ""
+    private var roomID = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivitySignUpBinding.inflate(layoutInflater)
@@ -77,7 +80,7 @@ class SignUp : AppCompatActivity() {
         }
         else{
             firebaseSignUp()
-            saveFirestore(username,email)
+            saveFirestore(username,email,roomID,roomname)
         }
     }
     private fun firebaseSignUp(){
@@ -100,7 +103,7 @@ class SignUp : AppCompatActivity() {
             }
     }
 
-    fun saveFirestore(usrname: String, mail: String){
+    fun saveFirestore(username: String, email: String, roomID: String, roomname: String){
         val db = FirebaseFirestore.getInstance()
         val user: MutableMap<String, Any> = HashMap()
         user["username"] = username
@@ -110,8 +113,9 @@ class SignUp : AppCompatActivity() {
             .addOnSuccessListener {
                 Toast.makeText(this, "Utworzono uzytkownika", Toast.LENGTH_SHORT).show()
             }
-            .addOnFailureListener{
-                Toast.makeText(this, "Nie udało się utworzyć uzytkownika", Toast.LENGTH_SHORT).show()
+            .addOnFailureListener {
+                Toast.makeText(this, "Nie udało się utworzyć uzytkownika", Toast.LENGTH_SHORT)
+                    .show()
             }
     }
 

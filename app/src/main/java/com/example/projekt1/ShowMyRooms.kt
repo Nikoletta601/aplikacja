@@ -9,12 +9,14 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
-import com.example.projekt1.databinding.*
+import com.example.projekt1.databinding.ActivityShowMyRoomsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+
+
 
 class ShowMyRooms : AppCompatActivity() {
     private lateinit var binding: ActivityShowMyRoomsBinding
@@ -22,6 +24,7 @@ class ShowMyRooms : AppCompatActivity() {
     private lateinit var actionBar: ActionBar
     private lateinit var databaseReference: DatabaseReference
 
+    private var mail =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -30,27 +33,32 @@ class ShowMyRooms : AppCompatActivity() {
         setContentView(binding.root)
 
         actionBar = supportActionBar!!
-        actionBar.title = "Profil"
+        actionBar.title = "Moje pokoje"
 
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.guzikPokojX.setOnClickListener {
+
+            //sprawdzenie czy użytkownik jest zalogowany
+            val firebaseUser = firebaseAuth.currentUser
+            if (firebaseUser != null){
+                mail= firebaseUser.email.toString()
+            }else{
+                startActivity(Intent(this,Login::class.java))
+                finish()
+            }
+            //kod na pokazywanie pokoi
+
             firebaseAuth.signOut() //wyloguje cie! zmien to xD
             startActivity(Intent(this, Login::class.java))
             finish()
         }
 
-/*
-        private lateinit var database: DatabaseReference
-        database = Firebase.database.referenc
+        binding.guzikBack2.setOnClickListener{
+            //powrót do profilu
+            startActivity(Intent(this, Profile::class.java))
+        }
 
-        binding.guzikCreateRoom.setOnClickListener {
-            val firebaseUser = firebaseAuth.currentUser
-            if (firebaseUser != null) {
-                mail = firebaseUser.email.toString()
-            }
-
-        }*/
 
     }
 }

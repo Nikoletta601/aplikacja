@@ -25,7 +25,9 @@ class JoinRoom : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     private var roomID = ""
+    private var roomname = ""
     private var mail =""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityJoinRoomBinding.inflate(layoutInflater)
@@ -52,7 +54,7 @@ class JoinRoom : AppCompatActivity() {
             roomID = binding.roomJoinEt.text.toString().trim()
             //wywolanie funkcji
             addFirestore(roomID,mail)
-
+            //addToRoom(roomID, roomname, mail)
             startActivity(Intent(this, Profile::class.java))
         }
 
@@ -95,6 +97,7 @@ class JoinRoom : AppCompatActivity() {
                                                 .add(user) // dodanie uzytkownika do zakladki users w pokoju
                                                 .addOnSuccessListener {
                                                     Toast.makeText(this, "Dołączono do pokoju", Toast.LENGTH_SHORT).show()
+                                                    addToRoom(roomID, roomname, mail)
                                                 }.addOnFailureListener {
                                                     Toast.makeText(this, "Nie udało się dołączyć do pokoju", Toast.LENGTH_SHORT).show()
                                                 }
@@ -109,6 +112,35 @@ class JoinRoom : AppCompatActivity() {
                     }
                 }
             }
+    }
+
+    fun addToRoom(roomID: String, roomname: String, email: String){
+        val db = FirebaseFirestore.getInstance()
+        //val user: MutableMap<String, Any> = HashMap()
+        //user["email"] = email
+        db.collection("Users")
+            .get()
+            .addOnCompleteListener{
+                val room: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
+                room["ID"] = roomID
+                room["roomname"] = roomname
+
+                val result: StringBuffer = StringBuffer()
+                if(it.isSuccessful) {
+                    for (document in it.result!!) {
+                        val mail = document.data.get("email") //pobranie maila
+                        if (mail == email) {
+                            val docId = document.id
+                            db.collection("Users").document(docId)
+                                .collection("Rooms")
+                                .add(room) //
+                        }
+                        break
+                    }
+                }
+            }
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

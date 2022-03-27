@@ -77,6 +77,7 @@ class Createroom : AppCompatActivity() {
             .add(room)
             .addOnSuccessListener {
                 Toast.makeText(this, "Utworzono pokój, ID: " + roomID, Toast.LENGTH_SHORT).show()
+                addToRoom(roomID, roomname, mail)
             }.addOnFailureListener{
                 Toast.makeText(this, "Nie udało się utworzyć pokoju", Toast.LENGTH_SHORT).show()
             }
@@ -101,6 +102,32 @@ class Createroom : AppCompatActivity() {
                 }
             }
 
+    }
+    fun addToRoom(roomID: String, roomname: String, email: String) {
+        val db = FirebaseFirestore.getInstance()
+        //val user: MutableMap<String, Any> = HashMap()
+        //user["email"] = email
+        db.collection("Users")
+            .get()
+            .addOnCompleteListener {
+                val room: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
+                room["ID"] = roomID
+                room["roomname"] = roomname
+
+                val result: StringBuffer = StringBuffer()
+                if (it.isSuccessful) {
+                    for (document in it.result!!) {
+                        val mail = document.data.get("email") //pobranie maila
+                        if (mail == email) {
+                            val docId = document.id
+                            db.collection("Users").document(docId)
+                                .collection("Rooms")
+                                .add(room) //
+                        }
+                        break
+                    }
+                }
+            }
     }
 
     override fun onSupportNavigateUp(): Boolean {
