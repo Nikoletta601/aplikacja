@@ -50,11 +50,11 @@ class Profile : AppCompatActivity() {
         val uid= firebaseAuth.currentUser?.uid
         databaseReference = FirebaseDatabase.getInstance().getReference("Users")
         val firebaseUser = firebaseAuth.currentUser
-        if (firebaseUser != null){
+        if (firebaseUser != null){//wypisanie maila jesli jest sie zalogowanym
                 val email= firebaseUser.email
                 binding.emailTV.text = email
         }
-        else{
+        else{ //wylogowanie jesli nie jest sie zalogowanym
             startActivity(Intent(this,Login::class.java))
             finish()
         }
