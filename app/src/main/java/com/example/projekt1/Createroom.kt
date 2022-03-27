@@ -96,8 +96,8 @@ class Createroom : AppCompatActivity() {
                             db.collection("Rooms").document(docId)
                                 .collection("Users") // wejscie do kolekcji users w znalezionym pokoju
                                 .add(user) // dodanie uzytkownika do zakladki users w pokoju
+                            break
                         }
-                        break
                     }
                 }
             }
