@@ -103,28 +103,25 @@ class Createroom : AppCompatActivity() {
             }
 
     }
-    fun addToRoom(roomID: String, roomname: String, email: String) {
+    fun addToRoom(roomID: String, roomname: String, email: String){
         val db = FirebaseFirestore.getInstance()
-        //val user: MutableMap<String, Any> = HashMap()
-        //user["email"] = email
         db.collection("Users")
             .get()
-            .addOnCompleteListener {
-                val room: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
-                room["ID"] = roomID
-                room["roomname"] = roomname
-
+            .addOnCompleteListener{task2->
                 val result: StringBuffer = StringBuffer()
-                if (it.isSuccessful) {
-                    for (document in it.result!!) {
-                        val mail = document.data.get("email") //pobranie maila
+                if(task2.isSuccessful) {
+                    for (doc2 in task2.result!!) {
+                        val mail = doc2.data.get("email") //pobranie maila
                         if (mail == email) {
-                            val docId = document.id
-                            db.collection("Users").document(docId)
+                            val docId2 = doc2.id
+                            val room2: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
+                            room2["ID"] = roomID
+                            room2["roomname"] = roomname
+                            db.collection("Users").document(docId2)
                                 .collection("Rooms")
-                                .add(room) //
+                                .add(room2) //
+                            break
                         }
-                        break
                     }
                 }
             }

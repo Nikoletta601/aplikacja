@@ -25,8 +25,8 @@ class JoinRoom : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
 
     private var roomID = ""
-    private var roomname = ""
     private var mail =""
+    private var roomname = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +75,8 @@ class JoinRoom : AppCompatActivity() {
                     for (document in it.result!!) {
                         //pętla przechodząca przez wszystkie pozycje w kolekcji "Rooms"
                         val id = document.data.get("ID") //pobranie ID pokoju
+                        val room = document.data.get("roomname")
+                        roomname = room.toString()
                         if (id == roomID) { //jeśli id zgadza się z wyszukiwanym ID
                             succ = 1 //zmiana wartosci na 1 -znaleziono pokój
                             val docId = document.id //pobranie uid pokoju
@@ -97,7 +99,7 @@ class JoinRoom : AppCompatActivity() {
                                                 .add(user) // dodanie uzytkownika do zakladki users w pokoju
                                                 .addOnSuccessListener {
                                                     Toast.makeText(this, "Dołączono do pokoju", Toast.LENGTH_SHORT).show()
-                                                    addToRoom(roomID, roomname, mail)
+                                                    addToRoom(roomID,roomname, mail)
                                                 }.addOnFailureListener {
                                                     Toast.makeText(this, "Nie udało się dołączyć do pokoju", Toast.LENGTH_SHORT).show()
                                                 }
@@ -114,33 +116,28 @@ class JoinRoom : AppCompatActivity() {
             }
     }
 
-    fun addToRoom(roomID: String, roomname: String, email: String){
+    fun addToRoom(roomID: String,roomname: String, email: String){
         val db = FirebaseFirestore.getInstance()
-        //val user: MutableMap<String, Any> = HashMap()
-        //user["email"] = email
         db.collection("Users")
             .get()
-            .addOnCompleteListener{
-                val room: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
-                room["ID"] = roomID
-                room["roomname"] = roomname
-
+            .addOnCompleteListener{task2->
                 val result: StringBuffer = StringBuffer()
-                if(it.isSuccessful) {
-                    for (document in it.result!!) {
-                        val mail = document.data.get("email") //pobranie maila
+                if(task2.isSuccessful) {
+                    for (doc2 in task2.result!!) {
+                        val mail = doc2.data.get("email") //pobranie maila
                         if (mail == email) {
-                            val docId = document.id
-                            db.collection("Users").document(docId)
+                            val docId2 = doc2.id
+                            val room2: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
+                            room2["ID"] = roomID
+                            room2["roomname"] = roomname
+                            db.collection("Users").document(docId2)
                                 .collection("Rooms")
-                                .add(room) //
+                                .add(room2) //
+                            break
                         }
-                        break
                     }
                 }
             }
-
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
