@@ -1,0 +1,56 @@
+package com.example.projekt1
+
+import android.app.ProgressDialog
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.text.TextUtils
+import android.util.Patterns
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import com.example.projekt1.databinding.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+
+class ShowMyRooms : AppCompatActivity() {
+    private lateinit var binding: ActivityShowMyRoomsBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var actionBar: ActionBar
+    private lateinit var databaseReference: DatabaseReference
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+        binding = ActivityShowMyRoomsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        actionBar = supportActionBar!!
+        actionBar.title = "Profil"
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        binding.guzikPokojX.setOnClickListener {
+            firebaseAuth.signOut() //wyloguje cie! zmien to xD
+            startActivity(Intent(this, Login::class.java))
+            finish()
+        }
+
+/*
+        private lateinit var database: DatabaseReference
+        database = Firebase.database.referenc
+
+        binding.guzikCreateRoom.setOnClickListener {
+            val firebaseUser = firebaseAuth.currentUser
+            if (firebaseUser != null) {
+                mail = firebaseUser.email.toString()
+            }
+
+        }*/
+
+    }
+}

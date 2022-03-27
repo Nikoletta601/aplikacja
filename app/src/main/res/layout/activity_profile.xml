@@ -26,19 +26,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stwórz pokój"/>
+
+    <Button
+        android:id="@+id/guzikShowMyRooms"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:text="Moje pokoje" />
+
     <Button
         android:id="@+id/guzikJoinRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dołącz do pokoju"/>
+
     <Button
         android:id="@+id/guzikEditProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edytuj profil"/>
+        android:text="Edytuj profil" />
+
     <Button
         android:id="@+id/guzikWyloguj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wyloguj"/>
+
 </LinearLayout>

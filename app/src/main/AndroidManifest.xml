@@ -15,6 +15,9 @@
             android:name=".JoinRoom"
             android:exported="false" />
         <activity
+            android:name=".ShowMyRooms"
+            android:exported="false" />
+        <activity
             android:name=".Createroom"
             android:exported="false" />
         <activity

@@ -33,6 +33,10 @@ class Profile : AppCompatActivity() {
             startActivity(Intent(this,Login::class.java))
             finish()
         }
+        binding.guzikShowMyRooms.setOnClickListener {
+            startActivity(Intent(this,ShowMyRooms::class.java))
+            finish()
+        }
         binding.guzikCreateRoom.setOnClickListener {
             startActivity(Intent(this,Createroom::class.java))
             finish()
