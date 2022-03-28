@@ -48,6 +48,7 @@ class ShowMyRooms : AppCompatActivity() {
                 finish()
             }
             //kod na pokazywanie pokoi
+            showRooms()
 
             firebaseAuth.signOut() //wyloguje cie! zmien to xD
             startActivity(Intent(this, Login::class.java))
@@ -59,6 +60,32 @@ class ShowMyRooms : AppCompatActivity() {
             startActivity(Intent(this, Profile::class.java))
         }
 
+
+    }
+    fun showRooms(){
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Users")
+            .get()
+            .addOnCompleteListener{
+                val result: StringBuffer = StringBuffer()
+                if(it.isSuccessful){
+                    for (document in it.result!!) {
+                        val email = document.data.get("email")
+                        if (mail == email) {
+                            val docId = document.id
+                            db.collection("Users").document(docId)
+                                .collection("Rooms")
+
+                            val roomId = document.data.get("roomID")
+                            //binding.roomIDTV.text = roomId
+                            //print("$roomID")
+                            //Toast.makeText(this, "$roomID", Toast.LENGTH_SHORT).show()
+                            break
+                        }
+                    }
+                }
+
+            }
 
     }
 }
