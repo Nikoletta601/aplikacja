@@ -36,23 +36,17 @@ class ShowMyRooms : AppCompatActivity() {
         actionBar.title = "Moje pokoje"
 
         firebaseAuth = FirebaseAuth.getInstance()
-
+        //sprawdzenie czy użytkownik jest zalogowany
+        val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser != null){
+            mail= firebaseUser.email.toString()
+        }else{
+            startActivity(Intent(this,Login::class.java))
+            finish()
+        }
+        showRooms()
         binding.guzikPokojX.setOnClickListener {
 
-            //sprawdzenie czy użytkownik jest zalogowany
-            val firebaseUser = firebaseAuth.currentUser
-            if (firebaseUser != null){
-                mail= firebaseUser.email.toString()
-            }else{
-                startActivity(Intent(this,Login::class.java))
-                finish()
-            }
-            //kod na pokazywanie pokoi
-            showRooms()
-
-            firebaseAuth.signOut() //wyloguje cie! zmien to xD
-            startActivity(Intent(this, Login::class.java))
-            finish()
         }
 
         binding.guzikBack2.setOnClickListener{
@@ -69,17 +63,23 @@ class ShowMyRooms : AppCompatActivity() {
             .addOnCompleteListener{
                 val result: StringBuffer = StringBuffer()
                 if(it.isSuccessful){
+
                     for (document in it.result!!) {
                         val email = document.data.get("email")
                         if (mail == email) {
                             val docId = document.id
-                            db.collection("Users").document(docId)
-                                .collection("Rooms")
-
-                            val roomId = document.data.get("roomID")
-                            //binding.roomIDTV.text = roomId
-                            //print("$roomID")
-                            //Toast.makeText(this, "$roomID", Toast.LENGTH_SHORT).show()
+                            db.collection("Users").document(docId).collection("Rooms")
+                                .get()
+                                .addOnCompleteListener{task->
+                                    var i=0
+                                    for (doc in task.result!!){
+                                        i=i+1
+                                        val roomId = doc.data.get("ID")
+                                        val roomname = doc.data.get("roomname")
+                                        binding.roomIDTV.text = roomname.toString()
+                                        Toast.makeText(this, i.toString() + roomname.toString(), Toast.LENGTH_SHORT).show()
+                                    }
+                                }
                             break
                         }
                     }
