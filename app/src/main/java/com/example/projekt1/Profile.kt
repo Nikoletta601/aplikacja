@@ -24,7 +24,6 @@ class Profile : AppCompatActivity() {
         actionBar = supportActionBar!!
         actionBar.title = "Profil"
 
-
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
@@ -45,6 +44,13 @@ class Profile : AppCompatActivity() {
             startActivity(Intent(this,JoinRoom::class.java))
             finish()
         }
+        binding.guzikroom.setOnClickListener {
+            val intent = Intent(this,RoomView::class.java)
+            intent.putExtra("id","D6h7c") // wyslanie danych do pliku z intent
+            startActivity(intent)
+            finish()
+        }
+
     }
     private fun checkUser(){
         val uid= firebaseAuth.currentUser?.uid

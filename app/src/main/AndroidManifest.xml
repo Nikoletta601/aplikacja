@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projekt1">
         <activity
+            android:name=".RoomView"
+            android:exported="false" />
+        <activity
             android:name=".JoinRoom"
             android:exported="false" />
         <activity

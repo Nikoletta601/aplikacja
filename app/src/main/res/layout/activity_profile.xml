@@ -50,5 +50,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wyloguj"/>
+    <Button
+        android:id="@+id/guzikroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pokoj test"/>
 
 </LinearLayout>
