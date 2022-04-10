@@ -16,6 +16,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class JoinRoom : AppCompatActivity() {
@@ -28,7 +31,8 @@ class JoinRoom : AppCompatActivity() {
     private var roomID = ""
     private var mail =""
     private var roomname = ""
-
+    private var checktime =""
+    private var chatcount = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityJoinRoomBinding.inflate(layoutInflater)
@@ -132,24 +136,24 @@ class JoinRoom : AppCompatActivity() {
                             db.collection("Rooms").document(docId)
                                 .collection("Chat")// wejscie do kolekcji users w znalezionym pokoju
                                 .get().addOnCompleteListener { task ->
-                                    var chatcount = 0
-                                    db.collection("Rooms").document(docId)
-                                        .collection("Chat") // wejscie do kolekcji chat w znalezionym pokoju
-                                        .get().addOnCompleteListener() { task ->
-                                            if (task.isSuccessful) {
-                                                for (document2 in it.result!!) {
+                                    db.collection("Rooms").document(docId).collection("Chat") // wejscie do kolekcji chat w znalezionym pokoju
+                                        .get().addOnCompleteListener { task ->
+                                            if(task.isSuccessful){
+                                                for (document2 in task.result!!) {
                                                     chatcount = chatcount + 1
                                                 }
+                                                val chat: MutableMap<String, Any> =
+                                                    HashMap() //stworzenie nowego dokumentu
+                                                chat["text"] = "Uzytkownik " + mail.toString() + " dołączył pokoju."
+                                                val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                                                val currentDate = sdf.format(Date())
+                                                chat["data"]= currentDate
+                                                db.collection("Rooms").document(docId).collection("Chat")
+                                                    .document(chatcount.toString())
+                                                    .set(chat);//stworzenie nowego dokumentu z nazwą
                                             }
                                         }
 
-                                    val chat: MutableMap<String, Any> =
-                                        HashMap() //stworzenie nowego dokumentu
-                                    chat["text"] =
-                                        "Uzytkownik " + mail.toString() + " dołączył pokoju."
-                                    db.collection("Rooms").document(docId).collection("Chat")
-                                        .document(chatcount.toString())
-                                        .set(chat);//stworzenie nowego dokumentu z nazwą
                                 }
 
                         }

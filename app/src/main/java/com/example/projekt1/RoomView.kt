@@ -113,12 +113,15 @@ class RoomView : AppCompatActivity() {
             .addOnCompleteListener{
                 val result: StringBuffer = StringBuffer()
                 if (it.isSuccessful) {
-                    var i=0
                     for (document in it.result!!) {
-                        i=i+1
+                        val textv2 = TextView(this) //stworzenie napisu
+                        textv2.textSize =15f //rozmiar
+                        textv2.text = document.data.get("data").toString() // wypianie daty
+                        textv2.setTextColor(Color.parseColor("#008F47"))
+                        binding.roomviewlayout.addView(textv2)
                         val textv = TextView(this) //stworzenie napisu
-                        textv.textSize =15f //rozmiar
-                        textv.text = document.data.get("text").toString() // wypianie emaila
+                        textv.textSize =16f //rozmiar
+                        textv.text = document.data.get("text").toString() + "\n"// wypianie wiadomosci
                         binding.roomviewlayout.addView(textv)
                     }
                 }

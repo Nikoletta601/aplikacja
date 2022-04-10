@@ -2,12 +2,14 @@ package com.example.projekt1
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import com.example.projekt1.databinding.ActivityCreateRoomBinding
 import com.example.projekt1.databinding.ActivitySignUpBinding
@@ -15,6 +17,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class Createroom : AppCompatActivity() {
@@ -28,6 +35,8 @@ class Createroom : AppCompatActivity() {
     private var roomname = ""
     private var roomID = ""
     private var mail =""
+    private var checktime =""
+    private var chatcount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +76,8 @@ class Createroom : AppCompatActivity() {
         }
     }
 
+
+
     fun saveFirestore(roomname: String, mail: String){
         val db = FirebaseFirestore.getInstance()
         val room: MutableMap<String, Any> = HashMap()
@@ -97,19 +108,22 @@ class Createroom : AppCompatActivity() {
                             db.collection("Rooms").document(docId)
                                 .collection("Users") // wejscie do kolekcji users w znalezionym pokoju
                                 .add(user) // dodanie uzytkownika do zakladki users w pokoju
-                            var chatcount = 0
                             db.collection("Rooms").document(docId).collection("Chat") // wejscie do kolekcji chat w znalezionym pokoju
                                 .get().addOnCompleteListener(){task->
                                     if(task.isSuccessful) {
-                                        for (document2 in it.result!!){
+                                        for (document2 in task.result!!){
                                             chatcount = chatcount+1
                                         }
+                                        val chat: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
+                                        chat["text"] = "Uzytkownik "+mail.toString()+" utworzył pokój."
+                                        val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                                        val currentDate = sdf.format(Date())
+                                        chat["data"]= currentDate
+                                        db.collection("Rooms").document(docId).collection("Chat").document(chatcount.toString()).set(chat);//stworzenie nowego dokumentu z nazwą
                                 }
                             }
 
-                            val chat: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
-                            chat["text"] = "Uzytkownik "+mail.toString()+" utworzył pokój."
-                            db.collection("Rooms").document(docId).collection("Chat").document(chatcount.toString()).set(chat);//stworzenie nowego dokumentu z nazwą
+
 
                             break
                         }
