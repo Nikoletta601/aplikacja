@@ -46,7 +46,7 @@ class Profile : AppCompatActivity() {
         }
         binding.guzikroom.setOnClickListener {
             val intent = Intent(this,RoomView::class.java)
-            intent.putExtra("id","D6h7c") // wyslanie danych do pliku z intent
+            intent.putExtra("id","FTMm4") // wyslanie danych do pliku z intent
             startActivity(intent)
             finish()
         }

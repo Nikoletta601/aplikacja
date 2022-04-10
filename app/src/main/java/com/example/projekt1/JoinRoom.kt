@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
+
 class JoinRoom : AppCompatActivity() {
 
     private lateinit var binding: ActivityJoinRoomBinding
@@ -99,7 +100,7 @@ class JoinRoom : AppCompatActivity() {
                                                 .add(user) // dodanie uzytkownika do zakladki users w pokoju
                                                 .addOnSuccessListener {
                                                     Toast.makeText(this, "Dołączono do pokoju", Toast.LENGTH_SHORT).show()
-                                                    addToRoom(roomID,roomname, mail)
+                                                    chat()
                                                 }.addOnFailureListener {
                                                     Toast.makeText(this, "Nie udało się dołączyć do pokoju", Toast.LENGTH_SHORT).show()
                                                 }
@@ -116,29 +117,47 @@ class JoinRoom : AppCompatActivity() {
             }
     }
 
-    fun addToRoom(roomID: String,roomname: String, email: String){
+    fun chat() {
         val db = FirebaseFirestore.getInstance()
-        db.collection("Users")
+        db.collection("Rooms") // wejscie do kolekcji Rooms
             .get()
-            .addOnCompleteListener{task2->
+            .addOnCompleteListener {
                 val result: StringBuffer = StringBuffer()
-                if(task2.isSuccessful) {
-                    for (doc2 in task2.result!!) {
-                        val mail = doc2.data.get("email") //pobranie maila
-                        if (mail == email) {
-                            val docId2 = doc2.id
-                            val room2: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
-                            room2["ID"] = roomID
-                            room2["roomname"] = roomname
-                            db.collection("Users").document(docId2)
-                                .collection("Rooms")
-                                .add(room2) //
-                            break
+                if (it.isSuccessful) {
+                    for (document in it.result!!) {
+                        //pętla przechodząca przez wszystkie pozycje w kolekcji "Rooms"
+                        val id = document.data.get("ID") //pobranie ID pokoju
+                        if (id == roomID) { //jeśli id zgadza się z wyszukiwanym ID
+                            val docId = document.id //pobranie uid pokoju
+                            db.collection("Rooms").document(docId)
+                                .collection("Chat")// wejscie do kolekcji users w znalezionym pokoju
+                                .get().addOnCompleteListener { task ->
+                                    var chatcount = 0
+                                    db.collection("Rooms").document(docId)
+                                        .collection("Chat") // wejscie do kolekcji chat w znalezionym pokoju
+                                        .get().addOnCompleteListener() { task ->
+                                            if (task.isSuccessful) {
+                                                for (document2 in it.result!!) {
+                                                    chatcount = chatcount + 1
+                                                }
+                                            }
+                                        }
+
+                                    val chat: MutableMap<String, Any> =
+                                        HashMap() //stworzenie nowego dokumentu
+                                    chat["text"] =
+                                        "Uzytkownik " + mail.toString() + " dołączył pokoju."
+                                    db.collection("Rooms").document(docId).collection("Chat")
+                                        .document(chatcount.toString())
+                                        .set(chat);//stworzenie nowego dokumentu z nazwą
+                                }
+
                         }
                     }
                 }
             }
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

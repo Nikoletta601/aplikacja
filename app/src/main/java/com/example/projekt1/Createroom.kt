@@ -16,12 +16,14 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
+
 class Createroom : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreateRoomBinding
     private lateinit var progressDialog: ProgressDialog
     private lateinit var databaseReference: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
+
 
     private var roomname = ""
     private var roomID = ""
@@ -77,7 +79,6 @@ class Createroom : AppCompatActivity() {
             .add(room)
             .addOnSuccessListener {
                 Toast.makeText(this, "Utworzono pokój, ID: " + roomID, Toast.LENGTH_SHORT).show()
-                addToRoom(roomID, roomname, mail)
             }.addOnFailureListener{
                 Toast.makeText(this, "Nie udało się utworzyć pokoju", Toast.LENGTH_SHORT).show()
             }
@@ -96,6 +97,20 @@ class Createroom : AppCompatActivity() {
                             db.collection("Rooms").document(docId)
                                 .collection("Users") // wejscie do kolekcji users w znalezionym pokoju
                                 .add(user) // dodanie uzytkownika do zakladki users w pokoju
+                            var chatcount = 0
+                            db.collection("Rooms").document(docId).collection("Chat") // wejscie do kolekcji chat w znalezionym pokoju
+                                .get().addOnCompleteListener(){task->
+                                    if(task.isSuccessful) {
+                                        for (document2 in it.result!!){
+                                            chatcount = chatcount+1
+                                        }
+                                }
+                            }
+
+                            val chat: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
+                            chat["text"] = "Uzytkownik "+mail.toString()+" utworzył pokój."
+                            db.collection("Rooms").document(docId).collection("Chat").document(chatcount.toString()).set(chat);//stworzenie nowego dokumentu z nazwą
+
                             break
                         }
                     }
@@ -103,30 +118,6 @@ class Createroom : AppCompatActivity() {
             }
 
     }
-    fun addToRoom(roomID: String, roomname: String, email: String){
-        val db = FirebaseFirestore.getInstance()
-        db.collection("Users")
-            .get()
-            .addOnCompleteListener{task2->
-                val result: StringBuffer = StringBuffer()
-                if(task2.isSuccessful) {
-                    for (doc2 in task2.result!!) {
-                        val mail = doc2.data.get("email") //pobranie maila
-                        if (mail == email) {
-                            val docId2 = doc2.id
-                            val room2: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
-                            room2["ID"] = roomID
-                            room2["roomname"] = roomname
-                            db.collection("Users").document(docId2)
-                                .collection("Rooms")
-                                .add(room2) //
-                            break
-                        }
-                    }
-                }
-            }
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
@@ -139,5 +130,7 @@ class Createroom : AppCompatActivity() {
             .map { allowedChars.random() }
             .joinToString("")
     }
+
+
 
 }

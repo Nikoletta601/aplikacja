@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.graphics.toColorInt
+import androidx.core.view.marginLeft
 import com.example.projekt1.databinding.ActivityLoginBinding
 import com.example.projekt1.databinding.ActivityRoomViewBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import android.graphics.Color
 
 class RoomView : AppCompatActivity() {
     private lateinit var binding:ActivityRoomViewBinding
@@ -20,12 +23,21 @@ class RoomView : AppCompatActivity() {
         binding = ActivityRoomViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         val roomid=intent.getStringExtra("id") //pobranie przeslanej wczesniej wartosci
         val db = FirebaseFirestore.getInstance()
-
         binding.guzikBack.setOnClickListener{
             //powrót do profilu
             startActivity(Intent(this, Profile::class.java))
+        }
+
+        binding.guzikUsers.setOnClickListener{
+            users_list() //wyswietlenie listy
+        }
+
+        binding.guzikNotifications.setOnClickListener{
+            chat() //wyswietlenie listy
         }
 
         db.collection("Rooms") // wejscie do kolekcji rooms
@@ -40,7 +52,7 @@ class RoomView : AppCompatActivity() {
                         if (id == roomid) { // jesli id takie same jak szukane
                             binding.RoomName.text = roomname //wypisanie nazwy pokoju
                             searchID = document.id.toString()
-                            users_list() //wyswietlenie listy
+                            chat()
                             break
                         }
                     }
@@ -53,11 +65,17 @@ class RoomView : AppCompatActivity() {
     }
 
     private fun users_list(){
+        clear_view()
         val db = FirebaseFirestore.getInstance()
         db.collection("Rooms").document(searchID).collection("Users") //wejscie do zakladki users w znalezionym pokoju
             .get()
             .addOnCompleteListener{
                 val result: StringBuffer = StringBuffer()
+                val textv3 = TextView(this) //stworzenie napisu
+                textv3.textSize =30f //rozmiar
+                textv3.text = "Użytkownicy:" // wypianie emaila
+                textv3.setTextColor(Color.parseColor("#000000"))
+                binding.roomviewlayout.addView(textv3) //dodanie stworzonego napisu do aktywnosci
                 if (it.isSuccessful) {
                     var i=0
                     for (document in it.result!!) {
@@ -66,6 +84,41 @@ class RoomView : AppCompatActivity() {
                         textv.textSize =18f //rozmiar
                         textv.text = i.toString() + ". " + document.data.get("email").toString() // wypianie emaila
                         binding.roomviewlayout.addView(textv) //dodanie stworzonego napisu do aktywnosci
+                        val textv2 = TextView(this) //stworzenie napisu
+                        textv2.textSize =18f //rozmiar
+                        textv2.text = document.data.get("role").toString() // wypianie roli
+                        textv2.setTextColor(Color.parseColor("#51C558"))
+                        binding.roomviewlayout.addView(textv2)
+                    }
+                }
+            }
+    }
+
+    private fun clear_view(){
+        if (null != binding.roomviewlayout && binding.roomviewlayout.getChildCount() > 0) {
+            try {
+                binding.roomviewlayout.removeViews(0,binding.roomviewlayout.getChildCount())
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun chat(){
+        clear_view()
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Rooms").document(searchID).collection("Chat") //wejscie do zakladki users w znalezionym pokoju
+            .get()
+            .addOnCompleteListener{
+                val result: StringBuffer = StringBuffer()
+                if (it.isSuccessful) {
+                    var i=0
+                    for (document in it.result!!) {
+                        i=i+1
+                        val textv = TextView(this) //stworzenie napisu
+                        textv.textSize =15f //rozmiar
+                        textv.text = document.data.get("text").toString() // wypianie emaila
+                        binding.roomviewlayout.addView(textv)
                     }
                 }
             }

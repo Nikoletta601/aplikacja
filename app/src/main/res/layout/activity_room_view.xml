@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20sp"
+
 
     tools:context=".RoomView">
 
@@ -18,35 +18,104 @@
         android:layout_marginBottom="15sp"
         style="@style/TextAppearance.AppCompat.Headline"/>
 
-    <Button
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5sp"
+        android:adjustViewBounds="true"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bckg1" />
+    <ImageView
         android:id="@+id/guzikBack"
-        android:layout_width="150sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="5sp"
-        android:text="Wróć" />
-
-
-
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:src="@drawable/back" />
+    <ImageView
+        android:id="@+id/guzikUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/users" />
+    <ImageView
+        android:id="@+id/guzikTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@id/guzikUsers"
+        android:layout_marginRight="85sp"
+        android:layout_marginLeft="85sp"
+        android:layout_marginBottom="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/tasks" />
+    <ImageView
+        android:id="@+id/guzikSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginBottom="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/settings" />
+    <ImageView
+        android:id="@+id/guzikNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@id/guzikUsers"
+        android:layout_marginRight="85sp"
+        android:layout_marginLeft="85sp"
+        android:layout_marginBottom="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/bell" />
 
     <LinearLayout
         android:id="@+id/roomviewlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_below="@id/RoomName"
+        android:orientation="vertical"
 
         tools:context=".RoomView">
+
         <TextView
+            android:layout_marginLeft="10sp"
             android:id="@+id/userslist"
+            style="@style/TextAppearance.AppCompat.Body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Użytkownicy:"
-            android:textSize="18sp"
             android:layout_below="@id/RoomName"
-            android:layout_marginBottom="10sp"
             android:layout_marginTop="20sp"
-            style="@style/TextAppearance.AppCompat.Body2"/>
+            android:layout_marginBottom="10sp"
+            android:text="Użytkownicy:"
+            android:textSize="18sp" />
     </LinearLayout>
 
 
