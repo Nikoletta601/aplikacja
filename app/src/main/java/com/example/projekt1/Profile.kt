@@ -36,20 +36,6 @@ class Profile : AppCompatActivity() {
             startActivity(Intent(this,ShowMyRooms::class.java))
             finish()
         }
-        binding.guzikCreateRoom.setOnClickListener {
-            startActivity(Intent(this,Createroom::class.java))
-            finish()
-        }
-        binding.guzikJoinRoom.setOnClickListener {
-            startActivity(Intent(this,JoinRoom::class.java))
-            finish()
-        }
-        binding.guzikroom.setOnClickListener {
-            val intent = Intent(this,RoomView::class.java)
-            intent.putExtra("id","FTMm4") // wyslanie danych do pliku z intent
-            startActivity(intent)
-            finish()
-        }
 
     }
     private fun checkUser(){

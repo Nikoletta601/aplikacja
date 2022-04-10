@@ -12,6 +12,7 @@ import com.example.projekt1.databinding.ActivityRoomViewBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import android.graphics.Color
+import android.widget.Button
 
 class RoomView : AppCompatActivity() {
     private lateinit var binding:ActivityRoomViewBinding
@@ -29,7 +30,7 @@ class RoomView : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         binding.guzikBack.setOnClickListener{
             //powrót do profilu
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, ShowMyRooms::class.java))
         }
 
         binding.guzikUsers.setOnClickListener{
@@ -37,7 +38,7 @@ class RoomView : AppCompatActivity() {
         }
 
         binding.guzikNotifications.setOnClickListener{
-            chat() //wyswietlenie listy
+            chat() //wyswietlenie czatu
         }
 
         db.collection("Rooms") // wejscie do kolekcji rooms

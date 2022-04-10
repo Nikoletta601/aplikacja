@@ -1,36 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
 
-    <Button
-        android:id="@+id/guzikPokojX"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="40dp"
-        android:text="Pokoj x" />
 
-    <Button
-        android:id="@+id/guzikBack2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="47dp"
-        android:layout_marginBottom="50dp"
-        android:text="wróć" />
+    tools:context=".ShowMyRooms">
 
+    <!--tytuł-->
     <TextView
-        android:id="@+id/roomIDTV"
+        android:id="@+id/Tytul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="118dp"
-        android:text="roomID" />
+        android:text="Moje pokoje"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15sp"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5sp"
+        android:adjustViewBounds="true"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bckg1" />
+    <ImageView
+        android:id="@+id/guzikBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:src="@drawable/back" />
+    <ImageView
+        android:id="@+id/guzikCreateRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/pen"/>
+    <ImageView
+        android:id="@+id/guzikJoinRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginBottom="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plus" />
+
+    <LinearLayout
+        android:id="@+id/roomviewlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/Tytul"
+        android:orientation="vertical"
+
+        tools:context=".RoomView">
+
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>

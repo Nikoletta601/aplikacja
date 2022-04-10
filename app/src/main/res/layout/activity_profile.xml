@@ -21,11 +21,6 @@
         android:textSize="20sp"
         android:text="Email"/>
 
-    <Button
-        android:id="@+id/guzikCreateRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stwórz pokój"/>
 
     <Button
         android:id="@+id/guzikShowMyRooms"
@@ -33,11 +28,6 @@
         android:layout_height="wrap_content"
         android:text="Moje pokoje" />
 
-    <Button
-        android:id="@+id/guzikJoinRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dołącz do pokoju"/>
 
     <Button
         android:id="@+id/guzikEditProfile"
@@ -50,10 +40,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wyloguj"/>
-    <Button
-        android:id="@+id/guzikroom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pokoj test"/>
 
 </LinearLayout>

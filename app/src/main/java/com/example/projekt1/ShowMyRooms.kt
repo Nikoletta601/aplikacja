@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Patterns
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.example.projekt1.databinding.ActivityShowMyRoomsBinding
@@ -40,50 +41,60 @@ class ShowMyRooms : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null){
             mail= firebaseUser.email.toString()
+            RoomList()
         }else{
             startActivity(Intent(this,Login::class.java))
             finish()
         }
-        showRooms()
-        binding.guzikPokojX.setOnClickListener {
 
+        binding.guzikCreateRoom.setOnClickListener{
+            startActivity(Intent(this,Createroom::class.java))
+            finish() //wyswietlenie listy
         }
-
-        binding.guzikBack2.setOnClickListener{
-            //powrót do profilu
-            startActivity(Intent(this, Profile::class.java))
+        binding.guzikJoinRoom.setOnClickListener{
+            startActivity(Intent(this,JoinRoom::class.java))
+            finish()
         }
-
+        binding.guzikBack.setOnClickListener{
+            startActivity(Intent(this,Profile::class.java))
+            finish()
+        }
 
     }
-    fun showRooms(){
-        val db = FirebaseFirestore.getInstance()
-        db.collection("Users")
-            .get()
-            .addOnCompleteListener{
-                val result: StringBuffer = StringBuffer()
-                if(it.isSuccessful){
 
+    fun RoomList(){
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Rooms") // wejscie do kolekcji Rooms
+            .get()
+            .addOnCompleteListener {
+                val result: StringBuffer = StringBuffer()
+                if (it.isSuccessful)
                     for (document in it.result!!) {
-                        val email = document.data.get("email")
-                        if (mail == email) {
-                            val docId = document.id
-                            db.collection("Users").document(docId).collection("Rooms")
-                                .get()
-                                .addOnCompleteListener{task->
-                                    var i=0
-                                    for (doc in task.result!!){
-                                        i=i+1
-                                        val roomId = doc.data.get("ID")
-                                        val roomname = doc.data.get("roomname")
-                                        binding.roomIDTV.text = roomname.toString()
-                                        Toast.makeText(this, i.toString() + roomname.toString(), Toast.LENGTH_SHORT).show()
+                        val docId = document.id
+                        db.collection("Rooms").document(docId).collection("Users")
+                            .get()
+                            .addOnCompleteListener { task->
+                                if(task.isSuccessful)
+                                    for(doc2 in task.result!!){
+                                        val email = doc2.data.get("email")
+                                        if(email == mail){
+                                            val guzik = Button(this)
+                                            guzik.width = 50
+                                            guzik.height = 50
+                                            guzik.text = document.data.get("roomname").toString()
+                                            guzik.setOnClickListener{
+                                                val intent = Intent(this,RoomView::class.java)
+                                                intent.putExtra("id",document.data.get("ID").toString()) // wyslanie danych do pliku z intent
+                                                startActivity(intent)
+                                                finish()
+                                            }
+                                            binding.roomviewlayout.addView(guzik)
+                                            break
+                                        }
                                     }
-                                }
-                            break
-                        }
+
+                            }
                     }
-                }
             }
     }
 }

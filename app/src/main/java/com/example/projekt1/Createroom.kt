@@ -58,12 +58,12 @@ class Createroom : AppCompatActivity() {
             //wywolanie funckji
             saveFirestore(roomname,mail)
 
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, ShowMyRooms::class.java))
         }
 
         binding.guzikBack.setOnClickListener{
             //powrót do profilu
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, ShowMyRooms::class.java))
         }
     }
 

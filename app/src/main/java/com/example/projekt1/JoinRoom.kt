@@ -56,12 +56,12 @@ class JoinRoom : AppCompatActivity() {
             //wywolanie funkcji
             addFirestore(roomID,mail)
             //addToRoom(roomID, roomname, mail)
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, ShowMyRooms::class.java))
         }
 
         binding.guzikBack.setOnClickListener{
             //powrot do profilu
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, ShowMyRooms::class.java))
         }
     }
 
