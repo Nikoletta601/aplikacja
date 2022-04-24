@@ -39,7 +39,8 @@ class RoomView : AppCompatActivity() {
             finish()
         }
 
-        val roomid = intent.getStringExtra("id") //pobranie przeslanej wczesniej wartosci
+        val roomid2 = intent.getStringExtra("id2")
+        val roomid = intent.getStringExtra("id")//pobranie przeslanej wczesniej wartosci
         val db = FirebaseFirestore.getInstance()
         binding.guzikBack.setOnClickListener {
             //powrót do profilu
@@ -57,7 +58,9 @@ class RoomView : AppCompatActivity() {
             settings() //wyswietlenie ustawien
         }
         binding.guzikTasks.setOnClickListener {
-            startActivity(Intent(this, Creattask::class.java))
+            val intent = Intent(this,tasks_view::class.java)
+            intent.putExtra("id2",roomid2.toString()) // wyslanie danych do pliku z intent
+            startActivity(intent)
         }
 
 
