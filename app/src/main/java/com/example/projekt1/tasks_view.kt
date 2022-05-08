@@ -38,6 +38,16 @@ class tasks_view : AppCompatActivity() {
             startActivity(Intent(this,Login::class.java))
             finish()
         }
+        binding.guzikBack.setOnClickListener{
+            //powrót do profilu
+            startActivity(Intent(this, ShowMyRooms::class.java))
+        }
+        binding.guzikCreateTask.setOnClickListener{
+            //powrót do profilu
+            val intent = Intent(this,guestlist::class.java)
+            intent.putExtra("id",docId)
+            startActivity(intent)
+        }
     }
     fun TasksList(){
         val db = FirebaseFirestore.getInstance()

@@ -6,17 +6,28 @@
     android:orientation="vertical"
 
 
-    tools:context=".tasks_view">
+    tools:context=".guestlist">
 
     <!--tytuł-->
     <TextView
-        android:id="@+id/RoomName"
+        android:id="@+id/Tytul"
+        android:layout_below="@id/hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zadania"
+        android:text="Użytkownicy:"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15sp"
+        android:layout_marginBottom="5sp"
         style="@style/TextAppearance.AppCompat.Headline"/>
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz użytkownika któremu chcesz przypisać zadanie"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5sp"
+        android:textSize="20sp"
+        />
 
     <ImageView
         android:layout_alignParentBottom="true"
@@ -26,8 +37,8 @@
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:scaleType="fitXY"
-        android:src="@drawable/bckg1"
-        android:id="@+id/tlo"/>
+        android:id="@+id/tlo"
+        android:src="@drawable/bckg1" />
     <ImageView
         android:id="@+id/guzikBack"
         android:layout_width="wrap_content"
@@ -41,51 +52,22 @@
         android:maxHeight="50dp"
         android:maxWidth="50dp"
         android:src="@drawable/back" />
-    <ImageView
-        android:id="@+id/guzikUsers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="5sp"
-        android:layout_marginBottom="10sp"
-        android:adjustViewBounds="true"
-        android:maxHeight="50dp"
-        android:maxWidth="50dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/users" />
-    <ImageView
-        android:id="@+id/guzikSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="5sp"
-        android:layout_marginRight="10sp"
-        android:layout_marginBottom="10sp"
-        android:adjustViewBounds="true"
-        android:maxHeight="50dp"
-        android:maxWidth="50dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/settings" />
     <Button
         android:id="@+id/guzikCreateTask"
         android:layout_width="189dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tlo"
         android:layout_marginStart="51dp"
-        android:layout_marginTop="160dp"
         android:layout_toEndOf="@+id/guzikBack"
-        android:text="Dodaj zadanie" />
-
+        android:text="wybierz" />
     <LinearLayout
-        android:id="@+id/roomviewlayout"
+        android:id="@+id/guestlistlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/RoomName"
+        android:layout_below="@id/Tytul"
         android:orientation="vertical"
 
-        tools:context=".RoomView">
+        tools:context=".guestlist">
 
     </LinearLayout>
 
