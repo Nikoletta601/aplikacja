@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projekt1">
         <activity
+            android:name=".guestlist"
+            android:exported="false" />
+        <activity
             android:name=".task"
+            android:exported="false" />
+        <activity
+            android:name=".Creattask"
             android:exported="false" />
         <activity
             android:name=".tasks_view"
