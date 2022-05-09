@@ -61,6 +61,13 @@ class GivePoints : AppCompatActivity() {
             startActivity(Intent(this, ShowMyRooms::class.java))
         }
 
+        binding.guzikRaport.setOnClickListener{
+            val intent = Intent(this,task::class.java)
+            intent.putExtra("id",docId)
+            intent.putExtra("id2",docId2)// wyslanie danych do pliku z intent
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun Points(){

@@ -81,9 +81,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/guzikDone"
         android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
         android:layout_marginTop="30dp"
-        android:text="Zdaj raport" />
+        android:layout_marginRight="20sp"
+        android:text="Zatwierdz" />
 
     <LinearLayout
         android:id="@+id/roomviewlayout"

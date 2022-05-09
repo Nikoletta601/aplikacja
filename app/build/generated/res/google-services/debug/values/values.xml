@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">277136682379-81ms7dh0pmcjotem7e0jmrevi83l3apd.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">277136682379</string>
+    <string name="google_api_key" translatable="false">AIzaSyBkguKUYVRtJFnHZLcjBqbU1JvOIDwcBeQ</string>
+    <string name="google_app_id" translatable="false">1:277136682379:android:ba47c2246845e1f1e7d38e</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBkguKUYVRtJFnHZLcjBqbU1JvOIDwcBeQ</string>
+    <string name="google_storage_bucket" translatable="false">bnm-projekt-io.appspot.com</string>
+    <string name="project_id" translatable="false">bnm-projekt-io</string>
+</resources>
