@@ -37,6 +37,10 @@ class Profile : AppCompatActivity() {
             startActivity(Intent(this,ShowMyRooms::class.java))
             finish()
         }
+        binding.guzikShowMyTasks.setOnClickListener {
+            startActivity(Intent(this,mytasks::class.java))
+            finish()
+        }
 
     }
     private fun checkUser(){

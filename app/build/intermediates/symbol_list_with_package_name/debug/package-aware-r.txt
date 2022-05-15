@@ -2799,6 +2799,7 @@ id guzikRaport
 id guzikReg
 id guzikSettings
 id guzikShowMyRooms
+id guzikShowMyTasks
 id guzikTasks
 id guzikUsers
 id guzikWyloguj
@@ -3195,6 +3196,7 @@ layout activity_give_points
 layout activity_guestlist
 layout activity_join_room
 layout activity_login
+layout activity_mytasks
 layout activity_profile
 layout activity_room_view
 layout activity_show_my_rooms

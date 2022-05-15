@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
+ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
 MERGED from [androidx.databinding:viewbinding:7.1.2] C:\Users\barte\.gradle\caches\transforms-3\6eb42776a25b3863e267b726e45bb03a\transformed\viewbinding-7.1.2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core-ktx:1.7.0] C:\Users\barte\.gradle\caches\transforms-3\68fcad8e53f3bd514f7f293deac33f68\transformed\core-ktx-1.7.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\barte\.gradle\caches\transforms-3\7ef7806814f630cae567d90a9f488a68\transformed\material-1.5.0\AndroidManifest.xml:17:1-24:12
@@ -78,20 +78,20 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\barte\.gradle\caches\transform
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\barte\.gradle\caches\transforms-3\32ce08a3984cb127d935725f12c443f1\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\barte\.gradle\caches\transforms-3\97b8e62224ec5c01ad42d56aa1e59d9a\transformed\protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.44.1] C:\Users\barte\.gradle\caches\transforms-3\32608bc9233f58eb54fa133f86b8e51d\transformed\grpc-android-1.44.1\AndroidManifest.xml:2:1-11:12
-INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
-INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
+INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
 	package
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
 		INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-55:12
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:1-58:12
 		INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:2:11-69
@@ -116,7 +116,7 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:
 	android:name
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:7:5-53:19
+ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:7:5-56:19
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\barte\.gradle\caches\transforms-3\7ef7806814f630cae567d90a9f488a68\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.5.0] C:\Users\barte\.gradle\caches\transforms-3\7ef7806814f630cae567d90a9f488a68\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] C:\Users\barte\.gradle\caches\transforms-3\6af3aa5319728c6d6689f8a3cbb7a7d7\transformed\constraintlayout-2.1.3\AndroidManifest.xml:9:5-20
@@ -187,82 +187,88 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] C:\Users\barte\.gradle\cach
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:13:9-46
-activity#com.example.projekt1.guestlist
+activity#com.example.projekt1.mytasks
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:14:9-16:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:16:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:15:13-38
-activity#com.example.projekt1.task
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:15:13-36
+activity#com.example.projekt1.guestlist
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:17:9-19:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:19:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:18:13-33
-activity#com.example.projekt1.Creattask
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:18:13-38
+activity#com.example.projekt1.task
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:20:9-22:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:22:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:21:13-38
-activity#com.example.projekt1.tasks_view
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:21:13-33
+activity#com.example.projekt1.Creattask
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:24:13-39
-activity#com.example.projekt1.RoomView
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:24:13-38
+activity#com.example.projekt1.tasks_view
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:27:13-37
-activity#com.example.projekt1.JoinRoom
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:27:13-39
+activity#com.example.projekt1.RoomView
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:29:9-31:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:31:13-37
 	android:name
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:30:13-37
-activity#com.example.projekt1.ShowMyRooms
+activity#com.example.projekt1.JoinRoom
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:32:9-34:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:34:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:33:13-40
-activity#com.example.projekt1.Createroom
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:33:13-37
+activity#com.example.projekt1.ShowMyRooms
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:35:9-37:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:37:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:36:13-39
-activity#com.example.projekt1.Profile
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:36:13-40
+activity#com.example.projekt1.Createroom
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:38:9-40:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:40:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:39:13-36
-activity#com.example.projekt1.SignUp
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:39:13-39
+activity#com.example.projekt1.Profile
 ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:41:9-43:40
 	android:exported
 		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:43:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:42:13-35
-activity#com.example.projekt1.Login
-ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:44:9-52:20
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:42:13-36
+activity#com.example.projekt1.SignUp
+ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:44:9-46:40
 	android:exported
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:46:13-36
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:46:13-37
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:45:13-34
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:45:13-35
+activity#com.example.projekt1.Login
+ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:47:9-55:20
+	android:exported
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:49:13-36
+	android:name
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:48:13-34
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:47:13-51:29
+ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:50:13-54:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:48:17-69
+ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:51:17-69
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:48:25-66
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:51:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:50:17-77
+ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:53:17-77
 	android:name
-		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:50:27-74
+		ADDED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml:53:27-74
 uses-sdk
 INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\barte\AndroidStudioProjects\projekt1\app\src\main\AndroidManifest.xml

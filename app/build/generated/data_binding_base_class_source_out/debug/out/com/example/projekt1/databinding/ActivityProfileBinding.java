@@ -30,15 +30,19 @@ public final class ActivityProfileBinding implements ViewBinding {
   public final Button guzikShowMyRooms;
 
   @NonNull
+  public final Button guzikShowMyTasks;
+
+  @NonNull
   public final Button guzikWyloguj;
 
   private ActivityProfileBinding(@NonNull LinearLayout rootView, @NonNull TextView emailTV,
       @NonNull Button guzikEditProfile, @NonNull Button guzikShowMyRooms,
-      @NonNull Button guzikWyloguj) {
+      @NonNull Button guzikShowMyTasks, @NonNull Button guzikWyloguj) {
     this.rootView = rootView;
     this.emailTV = emailTV;
     this.guzikEditProfile = guzikEditProfile;
     this.guzikShowMyRooms = guzikShowMyRooms;
+    this.guzikShowMyTasks = guzikShowMyTasks;
     this.guzikWyloguj = guzikWyloguj;
   }
 
@@ -87,6 +91,12 @@ public final class ActivityProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.guzikShowMyTasks;
+      Button guzikShowMyTasks = ViewBindings.findChildViewById(rootView, id);
+      if (guzikShowMyTasks == null) {
+        break missingId;
+      }
+
       id = R.id.guzikWyloguj;
       Button guzikWyloguj = ViewBindings.findChildViewById(rootView, id);
       if (guzikWyloguj == null) {
@@ -94,7 +104,7 @@ public final class ActivityProfileBinding implements ViewBinding {
       }
 
       return new ActivityProfileBinding((LinearLayout) rootView, emailTV, guzikEditProfile,
-          guzikShowMyRooms, guzikWyloguj);
+          guzikShowMyRooms, guzikShowMyTasks, guzikWyloguj);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -2798,6 +2798,7 @@ int id guzikRaport 0x7f0800e8
 int id guzikReg 0x7f0800e9
 int id guzikSettings 0x7f0800ea
 int id guzikShowMyRooms 0x7f0800eb
+int id guzikShowMyTasks 0x7f08021c
 int id guzikTasks 0x7f0800ec
 int id guzikUsers 0x7f0800ed
 int id guzikWyloguj 0x7f0800ee
@@ -3194,6 +3195,7 @@ int layout activity_give_points 0x7f0b001e
 int layout activity_guestlist 0x7f0b001f
 int layout activity_join_room 0x7f0b0020
 int layout activity_login 0x7f0b0021
+int layout activity_mytasks 0x7f0b0081
 int layout activity_profile 0x7f0b0022
 int layout activity_room_view 0x7f0b0023
 int layout activity_show_my_rooms 0x7f0b0024

@@ -46,5 +46,9 @@
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_join_room.xml",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_join_room.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_mytasks.xml",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_mytasks.xml"
     }
 ]
