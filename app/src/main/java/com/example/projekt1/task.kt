@@ -22,6 +22,7 @@ class task : AppCompatActivity() {
     private var mail =""
     private var docId =""
     private var docId2 =""
+    private var userid = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task)
@@ -50,37 +51,46 @@ class task : AppCompatActivity() {
     fun TasksList(){
         val db = FirebaseFirestore.getInstance()
         val result: StringBuffer = StringBuffer()
-        db.collection("Rooms").document(docId).collection("Tasks")
-            .get()
-            .addOnCompleteListener { task->
-                if(task.isSuccessful)
-                    for(doc2 in task.result!!){
-                        if(doc2.id == docId2){
-                            val email = doc2.data.get("email")
-                            if(email == mail){
-                                val guzik = Button(this)
-                                guzik.width = 50
-                                guzik.height = 50
-                                guzik.text = doc2.data.get("tresc").toString()
-                                binding.TaskName.text = doc2.data.get("tresc").toString()
-                                binding.comment.text = "Komentarz: " + doc2.data.get("komentarz").toString()
-                                binding.deadline.text = "Termin wykonania: "+doc2.data.get("deadline").toString()
-                                binding.points.text = "Punkty: "+doc2.data.get("punkty").toString() + "/" + doc2.data.get("maxpunkty").toString()
-                                binding.creator.text = "Autor zadania: "+doc2.data.get("creator").toString()
-                                val taskdone = doc2.data.get("wykonane")
-                                if(taskdone == false){
-                                    binding.isdone.text = "Nie wykonane"
-                                }else{
-                                    binding.isdone.text = "Wykonane"
-                                    //binding.isdone.setTextColor(0x37FF00)
+        db.collection("Users").get().addOnCompleteListener {
+            for( doc in it.result!!){
+                userid = doc.id
+                if (doc.get("email").toString() == mail.toString()){
+                    db.collection("Users").document(userid).collection("Tasks")
+                        .get()
+                        .addOnCompleteListener { task->
+                            if(task.isSuccessful)
+                                for(doc2 in task.result!!){
+                                    if(doc2.id == docId2){
+                                        val email = doc2.data.get("email")
+                                        if(email == mail){
+                                            val guzik = Button(this)
+                                            guzik.width = 50
+                                            guzik.height = 50
+                                            guzik.text = doc2.data.get("tresc").toString()
+                                            binding.TaskName.text = doc2.data.get("tresc").toString()
+                                            binding.comment.text = "Komentarz: " + doc2.data.get("komentarz").toString()
+                                            binding.deadline.text = "Termin wykonania: "+doc2.data.get("deadline").toString()
+                                            binding.points.text = "Punkty: "+doc2.data.get("punkty").toString() + "/" + doc2.data.get("maxpunkty").toString()
+                                            binding.creator.text = "Autor zadania: "+doc2.data.get("creator").toString()
+                                            val taskdone = doc2.data.get("wykonane")
+                                            if(taskdone.toString() == "0"){
+                                                binding.isdone.text = "Nie wykonane"
+                                            }else{
+                                                binding.isdone.text = "Wykonane"
+                                                //binding.isdone.setTextColor(0x37FF00)
+                                            }
+                                            break
+                                        }
+                                    }
+
                                 }
-                                break
-                            }
+
                         }
-
-                    }
-
+                    break
+                }
             }
+        }
+
     }
 }
 

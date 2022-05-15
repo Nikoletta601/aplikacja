@@ -25,7 +25,13 @@
         android:testOnly="true"
         android:theme="@style/Theme.Projekt1" >
         <activity
+            android:name="com.example.projekt1.guestlist"
+            android:exported="false" />
+        <activity
             android:name="com.example.projekt1.task"
+            android:exported="false" />
+        <activity
+            android:name="com.example.projekt1.Creattask"
             android:exported="false" />
         <activity
             android:name="com.example.projekt1.tasks_view"

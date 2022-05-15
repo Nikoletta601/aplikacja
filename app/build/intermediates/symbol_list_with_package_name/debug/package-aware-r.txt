@@ -1246,6 +1246,7 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color darkgrey
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1293,6 +1294,7 @@ color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
 color green
+color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color m3_appbar_overlay_color
@@ -2782,11 +2784,13 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
+id guestlistlayout
 id guideline
 id guzikBack
 id guzikBrakKonta
 id guzikCreateRoom
 id guzikCreateTask
+id guzikDone
 id guzikEditProfile
 id guzikJoinRoom
 id guzikLogin
@@ -2800,6 +2804,7 @@ id guzikUsers
 id guzikWyloguj
 id header_title
 id hideable
+id hint
 id home
 id homeAsUp
 id honorRequest
@@ -3030,8 +3035,10 @@ id tag_window_insets_animation_callback
 id taskCreateTitle
 id taskName
 id taskNameTil
+id taskdate
 id taskpunk
 id taskpunkty
+id tasktime
 id tasktr
 id tasktresc
 id test_checkbox_android_button_tint
@@ -3058,6 +3065,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id tlo
 id toggle
 id top
 id topPanel
@@ -3085,6 +3093,7 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id west
+id who
 id wide
 id withText
 id withinBounds
@@ -3182,6 +3191,8 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_create_room
 layout activity_create_task
+layout activity_give_points
+layout activity_guestlist
 layout activity_join_room
 layout activity_login
 layout activity_profile

@@ -34,6 +34,7 @@ class Creattask : AppCompatActivity() {
     private var mail =""
     private var docId=""
     private var useremail=""
+    private var userid =""
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -48,6 +49,7 @@ class Creattask : AppCompatActivity() {
             mail= firebaseUser.email.toString()
             docId = intent.getStringExtra("id").toString()
             useremail = intent.getStringExtra("user").toString()
+            userid = intent.getStringExtra("userid").toString()
         }else{
             startActivity(Intent(this,Login::class.java))
             finish()
@@ -87,7 +89,7 @@ class Creattask : AppCompatActivity() {
         }
         binding.guzikCreateTask.setOnClickListener {
             val db = FirebaseFirestore.getInstance()
-            db.collection("Rooms").document(docId).collection("Tasks")
+            db.collection("Users").document(userid).collection("Tasks")
                 .get()
                 .addOnCompleteListener {
                     val task: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
@@ -99,7 +101,8 @@ class Creattask : AppCompatActivity() {
                     task["wykonane"] = 0
                     task["punkty"] = 0
                     task["deadline"] = binding.taskdate.text.toString() + " " + binding.tasktime.text.toString()
-                    db.collection("Rooms").document(docId).collection("Tasks").add(task)
+                    task["room"] = docId.toString()
+                    db.collection("Users").document(userid).collection("Tasks").add(task)
                 }
             Toast.makeText(this,"Dodano zadanie", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this,Profile::class.java))

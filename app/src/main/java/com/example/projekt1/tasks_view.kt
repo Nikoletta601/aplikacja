@@ -21,6 +21,7 @@ class tasks_view : AppCompatActivity() {
     private var mail =""
     private var docId =""
     private var docId2=""
+    private var userid=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tasks_view)
@@ -51,32 +52,41 @@ class tasks_view : AppCompatActivity() {
     }
     fun TasksList(){
         val db = FirebaseFirestore.getInstance()
-                val result: StringBuffer = StringBuffer()
-                        db.collection("Rooms").document(docId).collection("Tasks")
-                            .get()
-                            .addOnCompleteListener { task2->
-                                if(task2.isSuccessful)
-                                    for(doc2 in task2.result!!){
-                                        val email = doc2.data.get("email")
-                                        if(email == mail){
-                                            val guzik = Button(this)
-                                            guzik.width = 50
-                                            guzik.height = 50
-                                            guzik.text = doc2.data.get("tresc").toString()
-                                            val docId2 = doc2.id.toString()
-                                            guzik.setOnClickListener{
-                                                val intent = Intent(this,task::class.java)
-                                                intent.putExtra("id",docId)
-                                                intent.putExtra("id2",docId2)// wyslanie danych do pliku z intent
-                                                startActivity(intent)
-                                                finish()
-                                            }
-                                            binding.roomviewlayout.addView(guzik)
-                                            break
+        db.collection("Users").get().addOnCompleteListener {
+            for( doc in it.result!!){
+                userid = doc.id
+                if (doc.get("email").toString() == firebaseAuth.currentUser?.email.toString()){
+                    val result: StringBuffer = StringBuffer()
+                    db.collection("Users").document(userid).collection("Tasks")
+                        .get()
+                        .addOnCompleteListener { task2->
+                            if(task2.isSuccessful)
+                                for(doc2 in task2.result!!){
+                                    val roomid = doc2.data.get("room")
+                                    if(roomid == docId){
+                                        val guzik = Button(this)
+                                        guzik.width = 50
+                                        guzik.height = 50
+                                        guzik.text = doc2.data.get("tresc").toString()
+                                        val docId2 = doc2.id.toString()
+                                        guzik.setOnClickListener{
+                                            val intent = Intent(this,task::class.java)
+                                            intent.putExtra("id",docId)
+                                            intent.putExtra("id2",docId2)// wyslanie danych do pliku z intent
+                                            startActivity(intent)
+                                            finish()
                                         }
+                                        binding.roomviewlayout.addView(guzik)
+                                        break
                                     }
+                                }
 
-                            }
+                        }
+                    break
+                }
+            }
+        }
+
                     }
 }
 

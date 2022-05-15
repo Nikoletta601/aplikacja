@@ -1,7 +1,9 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color darkgrey
 color green
+color grey
 color purple_200
 color purple_500
 color purple_700
@@ -32,10 +34,12 @@ id deadline
 id emailEt
 id emailTV
 id emailTil
+id guestlistlayout
 id guzikBack
 id guzikBrakKonta
 id guzikCreateRoom
 id guzikCreateTask
+id guzikDone
 id guzikEditProfile
 id guzikJoinRoom
 id guzikLogin
@@ -47,6 +51,7 @@ id guzikShowMyRooms
 id guzikTasks
 id guzikUsers
 id guzikWyloguj
+id hint
 id isdone
 id nameEt
 id nameTil
@@ -61,13 +66,19 @@ id roomviewlayout
 id taskCreateTitle
 id taskName
 id taskNameTil
+id taskdate
 id taskpunk
 id taskpunkty
+id tasktime
 id tasktr
 id tasktresc
+id tlo
 id tytul
+id who
 layout activity_create_room
 layout activity_create_task
+layout activity_give_points
+layout activity_guestlist
 layout activity_join_room
 layout activity_login
 layout activity_profile

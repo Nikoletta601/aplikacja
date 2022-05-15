@@ -15,8 +15,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20sp"
+        android:text="Nowe zadanie" />
+    <TextView
+        android:id="@+id/who"
+        android:textSize="20dp"
+        android:layout_below="@id/taskCreateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="100sp"
-        android:text="Zadanie" />
+        android:text="dla kogo" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -24,13 +33,13 @@
         android:layout_width="378dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/taskCreateTitle"
-        android:layout_marginTop="-50dp">
+        android:layout_marginTop="50dp">
 
         <EditText
             android:id="@+id/taskName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nazwa zadania"
+            android:hint="Treść zadania"
             android:inputType="text"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -39,11 +48,12 @@
         android:id="@+id/taskpunk"
         android:layout_width="389dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/taskCreateTitle"
-        android:layout_marginTop="20dp">
-
+        android:layout_below="@+id/taskNameTil"
+        android:layout_marginTop="20dp"
+        android:inputMethod="number">
         <EditText
             android:id="@+id/taskpunkty"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Punkty"
@@ -55,23 +65,46 @@
         android:id="@+id/tasktr"
         android:layout_width="389dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/taskCreateTitle"
-        android:layout_marginTop="90dp">
+        android:layout_below="@+id/taskpunk"
+        android:layout_marginTop="20dp">
 
         <EditText
             android:id="@+id/tasktresc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Treść"
+            android:hint="Komentarz"
             android:inputType="textImeMultiLine" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/taskdate"
+        android:layout_width="389dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/tasktr"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/grey"
+        android:text="Data"
+        android:textAlignment="textStart"
+        android:textColor="@color/darkgrey"></Button>
+
+    <Button
+        android:id="@+id/tasktime"
+        android:layout_width="389dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/taskdate"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/grey"
+        android:text="Godzina"
+        android:textAlignment="textStart"
+        android:textColor="@color/darkgrey"></Button>
+
+
+    <Button
         android:id="@+id/guzikBack"
         android:layout_width="134dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/taskCreateTitle"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="160dp"
         android:text="Wróć" />
 
@@ -79,7 +112,7 @@
         android:id="@+id/guzikCreateTask"
         android:layout_width="189dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/taskCreateTitle"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="51dp"
         android:layout_marginTop="160dp"
         android:layout_toEndOf="@+id/guzikBack"

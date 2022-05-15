@@ -29,7 +29,7 @@ class guestlist : AppCompatActivity() {
 
     private var mail =""
     private var docId=""
-
+    private var userid = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +55,6 @@ class guestlist : AppCompatActivity() {
             startActivity(Intent(this,Profile::class.java))
             finish()
         }
-
     }
 
     fun UsersList(){
@@ -68,6 +67,7 @@ class guestlist : AppCompatActivity() {
                     for (document in it.result!!) {
                         val email = document.data.get("email")
                         val guzik = Button(this)
+
                         guzik.width = 50
                         guzik.height = 50
                         guzik.text = email.toString()
@@ -75,10 +75,20 @@ class guestlist : AppCompatActivity() {
                         guzik.setOnClickListener{
                             guzik.setBackgroundColor(Color.GREEN)
                             val intent = Intent(this,Creattask::class.java)
-                            intent.putExtra("id",docId)
-                            intent.putExtra("user",email.toString())
-                            Toast.makeText(this,email.toString(), Toast.LENGTH_SHORT).show()
-                            startActivity(intent)
+                            db.collection("Users").get().addOnCompleteListener {
+                                for( doc in it.result!!){
+                                    userid = doc.id
+                                    if (doc.get("email").toString() == email.toString()){
+                                        intent.putExtra("id",docId)
+                                        intent.putExtra("user",email.toString())
+                                        intent.putExtra("userid",userid.toString())
+                                        startActivity(intent)
+                                        break
+                                    }
+                                }
+                            }
+
+
                                         }
                         binding.guestlistlayout.addView(guzik)
                                     }

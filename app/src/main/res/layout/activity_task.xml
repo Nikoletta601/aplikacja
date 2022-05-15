@@ -62,7 +62,7 @@
         android:textColor="@color/black"
         />
     <TextView
-        android:id="@+id/guzikDone"
+        android:id="@+id/isdone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nie wykonane"
@@ -99,7 +99,7 @@
         android:id="@+id/guzikRaport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/guzikDone"
+        android:layout_below="@+id/isdone"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:layout_marginTop="30dp"

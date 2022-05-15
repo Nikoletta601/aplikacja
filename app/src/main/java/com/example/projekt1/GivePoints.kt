@@ -35,26 +35,25 @@ class GivePoints : AppCompatActivity() {
     private var mail =""
     private var docId =""
     private var docId2 =""
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCreateRoomBinding.inflate(layoutInflater)
+        binding = ActivityGivePointsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
 
-        binding.guzikGivePoints.setOnClickListener {
+       // binding.guzikGivePoints.setOnClickListener {
             //sprawdzenie czy użytkownik jest zalogowany
-            val firebaseUser = firebaseAuth.currentUser
-            if (firebaseUser != null){
-                mail= firebaseUser.email.toString()
-            }else{
-                startActivity(Intent(this,Login::class.java))
-                finish()
-            }
-            Points()
+          //  val firebaseUser = firebaseAuth.currentUser
+          //  if (firebaseUser != null){
+          //      mail= firebaseUser.email.toString()
+          //  }else{
+          //      startActivity(Intent(this,Login::class.java))
+         //       finish()
+         //   }
+         //   Points()
 
-        }
+       // }
 
         binding.guzikBack.setOnClickListener{
             //powrot do profilu
@@ -86,7 +85,7 @@ class GivePoints : AppCompatActivity() {
 
                                 binding.guzikDone.setOnClickListener{
                                     binding.points.text = "Punkty: "+doc2.data.get("maxpunkty").toString() + "/" + doc2.data.get("maxpunkty").toString()
-                                    points=doc2.data.get("maxpunkty").toString()
+                                    //points=doc2.data.get("maxpunkty").toString()
                                 }
 
                                 val guzik = Button(this)

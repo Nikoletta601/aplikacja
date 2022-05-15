@@ -38,10 +38,16 @@ public final class ActivityCreateTaskBinding implements ViewBinding {
   public final TextInputLayout taskNameTil;
 
   @NonNull
+  public final Button taskdate;
+
+  @NonNull
   public final TextInputLayout taskpunk;
 
   @NonNull
   public final EditText taskpunkty;
+
+  @NonNull
+  public final Button tasktime;
 
   @NonNull
   public final TextInputLayout tasktr;
@@ -49,21 +55,27 @@ public final class ActivityCreateTaskBinding implements ViewBinding {
   @NonNull
   public final EditText tasktresc;
 
+  @NonNull
+  public final TextView who;
+
   private ActivityCreateTaskBinding(@NonNull RelativeLayout rootView, @NonNull Button guzikBack,
       @NonNull Button guzikCreateTask, @NonNull TextView taskCreateTitle,
-      @NonNull EditText taskName, @NonNull TextInputLayout taskNameTil,
-      @NonNull TextInputLayout taskpunk, @NonNull EditText taskpunkty,
-      @NonNull TextInputLayout tasktr, @NonNull EditText tasktresc) {
+      @NonNull EditText taskName, @NonNull TextInputLayout taskNameTil, @NonNull Button taskdate,
+      @NonNull TextInputLayout taskpunk, @NonNull EditText taskpunkty, @NonNull Button tasktime,
+      @NonNull TextInputLayout tasktr, @NonNull EditText tasktresc, @NonNull TextView who) {
     this.rootView = rootView;
     this.guzikBack = guzikBack;
     this.guzikCreateTask = guzikCreateTask;
     this.taskCreateTitle = taskCreateTitle;
     this.taskName = taskName;
     this.taskNameTil = taskNameTil;
+    this.taskdate = taskdate;
     this.taskpunk = taskpunk;
     this.taskpunkty = taskpunkty;
+    this.tasktime = tasktime;
     this.tasktr = tasktr;
     this.tasktresc = tasktresc;
+    this.who = who;
   }
 
   @Override
@@ -123,6 +135,12 @@ public final class ActivityCreateTaskBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.taskdate;
+      Button taskdate = ViewBindings.findChildViewById(rootView, id);
+      if (taskdate == null) {
+        break missingId;
+      }
+
       id = R.id.taskpunk;
       TextInputLayout taskpunk = ViewBindings.findChildViewById(rootView, id);
       if (taskpunk == null) {
@@ -132,6 +150,12 @@ public final class ActivityCreateTaskBinding implements ViewBinding {
       id = R.id.taskpunkty;
       EditText taskpunkty = ViewBindings.findChildViewById(rootView, id);
       if (taskpunkty == null) {
+        break missingId;
+      }
+
+      id = R.id.tasktime;
+      Button tasktime = ViewBindings.findChildViewById(rootView, id);
+      if (tasktime == null) {
         break missingId;
       }
 
@@ -147,8 +171,15 @@ public final class ActivityCreateTaskBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.who;
+      TextView who = ViewBindings.findChildViewById(rootView, id);
+      if (who == null) {
+        break missingId;
+      }
+
       return new ActivityCreateTaskBinding((RelativeLayout) rootView, guzikBack, guzikCreateTask,
-          taskCreateTitle, taskName, taskNameTil, taskpunk, taskpunkty, tasktr, tasktresc);
+          taskCreateTitle, taskName, taskNameTil, taskdate, taskpunk, taskpunkty, tasktime, tasktr,
+          tasktresc, who);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

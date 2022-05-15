@@ -4,6 +4,7 @@ package com.example.projekt1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -28,6 +29,9 @@ public final class ActivityTasksViewBinding implements ViewBinding {
   public final ImageView guzikBack;
 
   @NonNull
+  public final Button guzikCreateTask;
+
+  @NonNull
   public final ImageView guzikSettings;
 
   @NonNull
@@ -36,15 +40,21 @@ public final class ActivityTasksViewBinding implements ViewBinding {
   @NonNull
   public final LinearLayout roomviewlayout;
 
+  @NonNull
+  public final ImageView tlo;
+
   private ActivityTasksViewBinding(@NonNull RelativeLayout rootView, @NonNull TextView RoomName,
-      @NonNull ImageView guzikBack, @NonNull ImageView guzikSettings, @NonNull ImageView guzikUsers,
-      @NonNull LinearLayout roomviewlayout) {
+      @NonNull ImageView guzikBack, @NonNull Button guzikCreateTask,
+      @NonNull ImageView guzikSettings, @NonNull ImageView guzikUsers,
+      @NonNull LinearLayout roomviewlayout, @NonNull ImageView tlo) {
     this.rootView = rootView;
     this.RoomName = RoomName;
     this.guzikBack = guzikBack;
+    this.guzikCreateTask = guzikCreateTask;
     this.guzikSettings = guzikSettings;
     this.guzikUsers = guzikUsers;
     this.roomviewlayout = roomviewlayout;
+    this.tlo = tlo;
   }
 
   @Override
@@ -86,6 +96,12 @@ public final class ActivityTasksViewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.guzikCreateTask;
+      Button guzikCreateTask = ViewBindings.findChildViewById(rootView, id);
+      if (guzikCreateTask == null) {
+        break missingId;
+      }
+
       id = R.id.guzikSettings;
       ImageView guzikSettings = ViewBindings.findChildViewById(rootView, id);
       if (guzikSettings == null) {
@@ -104,8 +120,14 @@ public final class ActivityTasksViewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tlo;
+      ImageView tlo = ViewBindings.findChildViewById(rootView, id);
+      if (tlo == null) {
+        break missingId;
+      }
+
       return new ActivityTasksViewBinding((RelativeLayout) rootView, RoomName, guzikBack,
-          guzikSettings, guzikUsers, roomviewlayout);
+          guzikCreateTask, guzikSettings, guzikUsers, roomviewlayout, tlo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

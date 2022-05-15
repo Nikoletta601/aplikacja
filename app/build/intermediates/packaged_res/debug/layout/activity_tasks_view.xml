@@ -26,7 +26,8 @@
         android:layout_width="fill_parent"
         android:layout_height="70dp"
         android:scaleType="fitXY"
-        android:src="@drawable/bckg1" />
+        android:src="@drawable/bckg1"
+        android:id="@+id/tlo"/>
     <ImageView
         android:id="@+id/guzikBack"
         android:layout_width="wrap_content"
@@ -67,6 +68,15 @@
         android:maxWidth="50dp"
         android:scaleType="fitCenter"
         android:src="@drawable/settings" />
+    <Button
+        android:id="@+id/guzikCreateTask"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tlo"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="160dp"
+        android:layout_toEndOf="@+id/guzikBack"
+        android:text="Dodaj zadanie" />
 
     <LinearLayout
         android:id="@+id/roomviewlayout"
