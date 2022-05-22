@@ -28,6 +28,11 @@
         android:layout_height="wrap_content"
         android:text="Moje pokoje" />
 
+    <Button
+        android:id="@+id/guzikShowMyTasks"
+        android:layout_width="151dp"
+        android:layout_height="wrap_content"
+        android:text="Moje zadania" />
 
     <Button
         android:id="@+id/guzikEditProfile"
