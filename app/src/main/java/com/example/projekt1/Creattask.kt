@@ -54,7 +54,7 @@ class Creattask : AppCompatActivity() {
             startActivity(Intent(this, Creattask::class.java))
         }
 
-        binding.who.text = "dla "
+        binding.who.text = "dla " + emailarray.joinToString(separator = ",")
 
         //kalendarz
         val c= Calendar.getInstance()
