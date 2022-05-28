@@ -30,6 +30,8 @@ class guestlist : AppCompatActivity() {
     private var mail =""
     private var docId=""
     private var userid = ""
+    var userarray =ArrayList<String>()
+    var emailarray =ArrayList<String>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +57,15 @@ class guestlist : AppCompatActivity() {
             startActivity(Intent(this,Profile::class.java))
             finish()
         }
+
+        binding.guzikCreateTask.setOnClickListener{
+
+            val intent = Intent(this,Creattask::class.java)
+            intent.putExtra("id",docId)
+            intent.putStringArrayListExtra("userarray",userarray)
+            intent.putStringArrayListExtra("emailarray",emailarray)
+            startActivity(intent)
+        }
     }
 
     fun UsersList(){
@@ -79,10 +90,8 @@ class guestlist : AppCompatActivity() {
                                 for( doc in it.result!!){
                                     userid = doc.id
                                     if (doc.get("email").toString() == email.toString()){
-                                        intent.putExtra("id",docId)
-                                        intent.putExtra("user",email.toString())
-                                        intent.putExtra("userid",userid.toString())
-                                        startActivity(intent)
+                                            userarray.add(userid.toString())
+                                            emailarray.add(email.toString())
                                         break
                                     }
                                 }

@@ -1,23 +1,15 @@
 package com.example.projekt1
 
 import android.app.DatePickerDialog
-import android.app.ProgressDialog
 import android.app.TimePickerDialog
 import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Patterns
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.example.projekt1.databinding.ActivityCreateTaskBinding
-import com.example.projekt1.databinding.ActivityShowMyRoomsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
@@ -34,7 +26,9 @@ class Creattask : AppCompatActivity() {
     private var mail =""
     private var docId=""
     private var useremail=""
-    private var userid =""
+    var userarray =ArrayList<String>()
+    var emailarray =ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -48,8 +42,8 @@ class Creattask : AppCompatActivity() {
         if (firebaseUser != null){
             mail= firebaseUser.email.toString()
             docId = intent.getStringExtra("id").toString()
-            useremail = intent.getStringExtra("user").toString()
-            userid = intent.getStringExtra("userid").toString()
+            userarray= intent.getStringArrayListExtra("userarray") as ArrayList<String>
+            emailarray= intent.getStringArrayListExtra("emailarray") as ArrayList<String>
         }else{
             startActivity(Intent(this,Login::class.java))
             finish()
@@ -60,7 +54,7 @@ class Creattask : AppCompatActivity() {
             startActivity(Intent(this, Creattask::class.java))
         }
 
-        binding.who.text = "dla "+ useremail.toString()
+        binding.who.text = "dla "
 
         //kalendarz
         val c= Calendar.getInstance()
@@ -88,23 +82,30 @@ class Creattask : AppCompatActivity() {
             finish()
         }
         binding.guzikCreateTask.setOnClickListener {
-            val db = FirebaseFirestore.getInstance()
-            db.collection("Users").document(userid).collection("Tasks")
-                .get()
-                .addOnCompleteListener {
-                    val task: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
-                    task["creator"] = mail
-                    task["email"] = useremail
-                    task["maxpunkty"] = binding.taskpunkty.text.toString()
-                    task["komentarz"] = binding.tasktresc.text.toString()
-                    task["tresc"] = binding.taskName.text.toString()
-                    task["wykonane"] = 0
-                    task["punkty"] = 0
-                    task["deadline"] = binding.taskdate.text.toString() + " " + binding.tasktime.text.toString()
-                    task["room"] = docId.toString()
-                    db.collection("Users").document(userid).collection("Tasks").add(task)
+                for(i in userarray.indices){
+                    var userid = userarray[i]
+                    var email = emailarray[i]
+                    val db = FirebaseFirestore.getInstance()
+                    db.collection("Users").document(userid).collection("Tasks")
+                        .get()
+                        .addOnCompleteListener {
+                            val task: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
+                            task["creator"] = mail
+                            task["email"] = email
+                            task["maxpunkty"] = binding.taskpunkty.text.toString()
+                            task["komentarz"] = binding.tasktresc.text.toString()
+                            task["tresc"] = binding.taskName.text.toString()
+                            task["wykonane"] = 0
+                            task["punkty"] = 0
+                            task["deadline"] = binding.taskdate.text.toString() + " " + binding.tasktime.text.toString()
+                            task["room"] = docId.toString()
+                            db.collection("Users").document(userid).collection("Tasks").add(task)
+                        }
                 }
-            Toast.makeText(this,"Dodano zadanie", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Dodano zadanie", Toast.LENGTH_SHORT).show()
+
+
+
             startActivity(Intent(this,Profile::class.java))
             finish()
         }
