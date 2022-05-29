@@ -99,6 +99,7 @@ class Creattask : AppCompatActivity() {
                             task["punkty"] = 0
                             task["deadline"] = binding.taskdate.text.toString() + " " + binding.tasktime.text.toString()
                             task["room"] = docId.toString()
+                            //task["komentarzW"] = " "
                             db.collection("Users").document(userid).collection("Tasks").add(task)
                         }
                 }

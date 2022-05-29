@@ -1,0 +1,118 @@
+package com.example.projekt1
+
+import android.app.ProgressDialog
+import android.content.Intent
+import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.text.TextUtils
+import android.util.Patterns
+import android.view.View
+import android.widget.Button
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.ActionBar
+import com.example.projekt1.databinding.ActivityRaportBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.HashMap
+
+class Raport : AppCompatActivity() {
+    private lateinit var binding: ActivityRaportBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var actionBar: ActionBar
+    private lateinit var databaseReference: DatabaseReference
+
+    private var mail = ""
+    private var docId = ""
+    private var docId2 = ""
+    private var userid = ""
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_raport)
+        binding = ActivityRaportBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        //sprawdzenie czy użytkownik jest zalogowany
+        val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser != null) {
+            mail = firebaseUser.email.toString()
+            Raport()
+        } else {
+            startActivity(Intent(this, Login::class.java))
+            finish()
+        }
+
+        binding.guzikBack.setOnClickListener {
+            //powrót do zadania
+            startActivity(Intent(this, task::class.java))
+        }
+
+    }
+
+    fun Raport() {
+        val db = FirebaseFirestore.getInstance()
+        val result: StringBuffer = StringBuffer()
+        db.collection("Users").get().addOnCompleteListener {
+            for (doc in it.result!!) {
+                userid = doc.id
+                if (doc.get("email").toString() == mail.toString()) {
+                    db.collection("Users").document(userid).collection("Tasks")
+                        .get()
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful)
+                                for (doc2 in task.result!!) {
+                                    if (doc2.id == docId2) {
+                                        val email = doc2.data.get("email")
+                                        if (email == mail) {
+                                            /*
+                                            val tekst=binding.commentWykonawcy.text.toString()
+                                            db.collection("Users").document(userid).collection("Tasks").document(docId2).get("commentWykonawcy").setValue(tekst)
+
+
+                                            //var commentW=binding.commentWykonawcy.text.toString()
+                                            db.collection("Users").document(userid).collection("Tasks")
+                                                .get()
+                                                .addOnCompleteListener{
+                                                    val task = task()
+                                                    val taskValues = task.toMap()
+                                                    val task: Map<String, String>
+
+
+                                                }
+                                                    task["komentarzW"]=binding.commentWykonawcy.text.toString()
+
+                                                }
+                                                //.add(task["komentarzW"]=binding.commentWykonawcy.text.toString())
+
+                                            //var newPostKey = db.collection("Users").document(userid).collection("Tasks").ref()
+                                            //binding.commentwykonawcy.text = "Komentarz wykonawcy: " + doc2.data.get("komentarzW").toString()
+                                        } */
+                                        }
+                                    }
+                                }
+                        }
+                }
+            }
+
+
+        }
+/*
+    fun Update(e){
+        val db=FirebaseFirestore.getInstance()
+        val task=db.collection("Users").document(userid).collection("Tasks").document(docId2)
+        task.update({komentarzW: e.target.value})
+
+    }
+*/
+    }
+}

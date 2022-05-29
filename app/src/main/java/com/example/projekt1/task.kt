@@ -46,6 +46,7 @@ class task : AppCompatActivity() {
             startActivity(Intent(this, ShowMyRooms::class.java))
         }
         binding.guzikRaport.setOnClickListener {
+            startActivity(Intent(this, Raport::class.java))
         }
     }
     fun TasksList(){

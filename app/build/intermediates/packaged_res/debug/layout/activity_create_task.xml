@@ -17,15 +17,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20sp"
         android:text="Nowe zadanie" />
+
     <TextView
         android:id="@+id/who"
-        android:textSize="20dp"
-        android:layout_below="@id/taskCreateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/taskCreateTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100sp"
-        android:text="dla kogo" />
+        android:text="dla kogo"
+        android:textSize="15dp" />
 
 
     <com.google.android.material.textfield.TextInputLayout
