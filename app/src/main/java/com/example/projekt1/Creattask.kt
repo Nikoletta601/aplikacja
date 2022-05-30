@@ -15,8 +15,6 @@ import java.util.*
 
 //import com.google.firebase.ktx.Firebase
 
-
-
 class Creattask : AppCompatActivity() {
     private lateinit var binding: ActivityCreateTaskBinding
     private lateinit var firebaseAuth: FirebaseAuth

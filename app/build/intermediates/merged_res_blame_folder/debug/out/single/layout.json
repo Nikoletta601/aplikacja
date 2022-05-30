@@ -44,6 +44,10 @@
         "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_room_view.xml"
     },
     {
+        "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_raport.xml",
+        "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_raport.xml"
+    },
+    {
         "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_join_room.xml",
         "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_join_room.xml"
     },

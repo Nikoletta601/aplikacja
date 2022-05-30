@@ -58,6 +58,9 @@
             android:name="com.example.projekt1.SignUp"
             android:exported="false" />
         <activity
+            android:name="com.example.projekt1.Raport"
+            android:exported="false" />
+        <activity
             android:name="com.example.projekt1.Login"
             android:exported="true" >
             <intent-filter>

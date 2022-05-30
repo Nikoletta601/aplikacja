@@ -19,9 +19,8 @@ class task : AppCompatActivity() {
     private lateinit var actionBar: ActionBar
     private lateinit var databaseReference: DatabaseReference
 
-    private var mail =""
-    private var docId =""
-    private var docId2 =""
+    private var mail =""//logged in user's mail from database
+    private var docId2 =""//task id
     private var userid = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +33,6 @@ class task : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null){
             mail= firebaseUser.email.toString()
-            docId = intent.getStringExtra("id").toString()
             docId2 = intent.getStringExtra("id2").toString()
             TasksList()
         }else{
@@ -61,7 +59,7 @@ class task : AppCompatActivity() {
                         .addOnCompleteListener { task->
                             if(task.isSuccessful)
                                 for(doc2 in task.result!!){
-                                    if(doc2.id == docId2){
+                                    if(doc2.id == docId2){//if task id from for is equal to task id
                                         val email = doc2.data.get("email")
                                         if(email == mail){
                                             val guzik = Button(this)
