@@ -80,11 +80,10 @@ class Creattask : AppCompatActivity() {
             finish()
         }
         binding.guzikCreateTask.setOnClickListener {
-                for(i in userarray.indices){
-                    var userid = userarray[i]
-                    var email = emailarray[i]
+                    var userid = userarray
+                    var email = emailarray
                     val db = FirebaseFirestore.getInstance()
-                    db.collection("Users").document(userid).collection("Tasks")
+                    db.collection("Rooms").document(docId).collection("Tasks")
                         .get()
                         .addOnCompleteListener {
                             val task: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
@@ -93,14 +92,12 @@ class Creattask : AppCompatActivity() {
                             task["maxpunkty"] = binding.taskpunkty.text.toString()
                             task["komentarz"] = binding.tasktresc.text.toString()
                             task["tresc"] = binding.taskName.text.toString()
-                            task["wykonane"] = 0
-                            task["punkty"] = 0
                             task["deadline"] = binding.taskdate.text.toString() + " " + binding.tasktime.text.toString()
                             task["room"] = docId.toString()
-                            //task["komentarzW"] = " "
-                            db.collection("Users").document(userid).collection("Tasks").add(task)
+                            task["dlaKogo"] = userarray
+                            db.collection("Rooms").document(docId).collection("Tasks").add(task)
                         }
-                }
+
                 Toast.makeText(this,"Dodano zadanie", Toast.LENGTH_SHORT).show()
 
 

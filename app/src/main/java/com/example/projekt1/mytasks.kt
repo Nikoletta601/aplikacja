@@ -70,7 +70,6 @@ class mytasks: AppCompatActivity() {
                                             finish()
                                         }
                                         binding.roomviewlayout.addView(guzik)
-                                        break
                                 }
 
                         }

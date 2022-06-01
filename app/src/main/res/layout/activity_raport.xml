@@ -42,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/commentWykonawcy"
         android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="20sp"
         android:text="Wykonane" />
 
     <Button

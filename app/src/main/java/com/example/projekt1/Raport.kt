@@ -61,6 +61,11 @@ class Raport : AppCompatActivity() {
             startActivity(Intent(this, task::class.java))
         }
 
+        binding.guzikRaport.setOnClickListener {
+            //powrót do zadania
+            Raport()
+        }
+
     }
 
     fun Raport() {
@@ -81,14 +86,19 @@ class Raport : AppCompatActivity() {
                                         val email = doc2.data.get("email")
                                         if (email == mail) {
                                             val tekst = binding.commentwykonawcy.text.toString()
-
+                                            val komentarz = hashMapOf(
+                                                "komentarzW" to binding.commentwykonawcy.text.toString()
+                                            )
+                                            db.collection("Users").document(userid).collection("Tasks").document(docId2).set(komentarz)
                                         }
+                                        break
                                     }
-                                    break
+
                                 }
                         }
+                    break
                 }
-                break
+
             }
         }
     }
