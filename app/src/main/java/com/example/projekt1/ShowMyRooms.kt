@@ -47,13 +47,9 @@ class ShowMyRooms : AppCompatActivity() {
             finish()
         }
 
-        binding.guzikCreateRoom.setOnClickListener{
-            startActivity(Intent(this,Createroom::class.java))
-            finish() //wyswietlenie listy
-        }
         binding.guzikJoinRoom.setOnClickListener{
-            startActivity(Intent(this,JoinRoom::class.java))
-            finish()
+            startActivity(Intent(this,join_create_room::class.java))
+            finish() //wyswietlenie listy
         }
         binding.guzikBack.setOnClickListener{
             startActivity(Intent(this,Profile::class.java))

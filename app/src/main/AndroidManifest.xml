@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projekt1">
         <activity
+            android:name=".taskdone_view"
+            android:exported="false" />
+        <activity
+            android:name=".taskdone"
+            android:exported="false" />
+        <activity
+            android:name=".tasks_menu"
+            android:exported="false" />
+        <activity
+            android:name=".join_create_room"
+            android:exported="false" />
+        <activity
             android:name=".mytasks"
             android:exported="false" />
         <activity

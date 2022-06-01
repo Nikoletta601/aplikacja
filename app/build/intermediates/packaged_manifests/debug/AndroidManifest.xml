@@ -25,6 +25,18 @@
         android:testOnly="true"
         android:theme="@style/Theme.Projekt1" >
         <activity
+            android:name="com.example.projekt1.taskdone_view"
+            android:exported="false" />
+        <activity
+            android:name="com.example.projekt1.taskdone"
+            android:exported="false" />
+        <activity
+            android:name="com.example.projekt1.tasks_menu"
+            android:exported="false" />
+        <activity
+            android:name="com.example.projekt1.join_create_room"
+            android:exported="false" />
+        <activity
             android:name="com.example.projekt1.mytasks"
             android:exported="false" />
         <activity

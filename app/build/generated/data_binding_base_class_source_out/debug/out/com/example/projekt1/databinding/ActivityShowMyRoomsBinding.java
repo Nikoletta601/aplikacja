@@ -28,21 +28,17 @@ public final class ActivityShowMyRoomsBinding implements ViewBinding {
   public final ImageView guzikBack;
 
   @NonNull
-  public final ImageView guzikCreateRoom;
-
-  @NonNull
   public final ImageView guzikJoinRoom;
 
   @NonNull
   public final LinearLayout roomviewlayout;
 
   private ActivityShowMyRoomsBinding(@NonNull RelativeLayout rootView, @NonNull TextView Tytul,
-      @NonNull ImageView guzikBack, @NonNull ImageView guzikCreateRoom,
-      @NonNull ImageView guzikJoinRoom, @NonNull LinearLayout roomviewlayout) {
+      @NonNull ImageView guzikBack, @NonNull ImageView guzikJoinRoom,
+      @NonNull LinearLayout roomviewlayout) {
     this.rootView = rootView;
     this.Tytul = Tytul;
     this.guzikBack = guzikBack;
-    this.guzikCreateRoom = guzikCreateRoom;
     this.guzikJoinRoom = guzikJoinRoom;
     this.roomviewlayout = roomviewlayout;
   }
@@ -86,12 +82,6 @@ public final class ActivityShowMyRoomsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.guzikCreateRoom;
-      ImageView guzikCreateRoom = ViewBindings.findChildViewById(rootView, id);
-      if (guzikCreateRoom == null) {
-        break missingId;
-      }
-
       id = R.id.guzikJoinRoom;
       ImageView guzikJoinRoom = ViewBindings.findChildViewById(rootView, id);
       if (guzikJoinRoom == null) {
@@ -105,7 +95,7 @@ public final class ActivityShowMyRoomsBinding implements ViewBinding {
       }
 
       return new ActivityShowMyRoomsBinding((RelativeLayout) rootView, Tytul, guzikBack,
-          guzikCreateRoom, guzikJoinRoom, roomviewlayout);
+          guzikJoinRoom, roomviewlayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

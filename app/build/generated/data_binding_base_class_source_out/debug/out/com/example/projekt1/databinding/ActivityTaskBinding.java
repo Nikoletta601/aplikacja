@@ -41,9 +41,6 @@ public final class ActivityTaskBinding implements ViewBinding {
   public final Button guzikRaport;
 
   @NonNull
-  public final TextView isdone;
-
-  @NonNull
   public final TextView points;
 
   @NonNull
@@ -51,8 +48,8 @@ public final class ActivityTaskBinding implements ViewBinding {
 
   private ActivityTaskBinding(@NonNull RelativeLayout rootView, @NonNull TextView TaskName,
       @NonNull TextView comment, @NonNull TextView creator, @NonNull TextView deadline,
-      @NonNull ImageView guzikBack, @NonNull Button guzikRaport, @NonNull TextView isdone,
-      @NonNull TextView points, @NonNull LinearLayout roomviewlayout) {
+      @NonNull ImageView guzikBack, @NonNull Button guzikRaport, @NonNull TextView points,
+      @NonNull LinearLayout roomviewlayout) {
     this.rootView = rootView;
     this.TaskName = TaskName;
     this.comment = comment;
@@ -60,7 +57,6 @@ public final class ActivityTaskBinding implements ViewBinding {
     this.deadline = deadline;
     this.guzikBack = guzikBack;
     this.guzikRaport = guzikRaport;
-    this.isdone = isdone;
     this.points = points;
     this.roomviewlayout = roomviewlayout;
   }
@@ -128,12 +124,6 @@ public final class ActivityTaskBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.isdone;
-      TextView isdone = ViewBindings.findChildViewById(rootView, id);
-      if (isdone == null) {
-        break missingId;
-      }
-
       id = R.id.points;
       TextView points = ViewBindings.findChildViewById(rootView, id);
       if (points == null) {
@@ -147,7 +137,7 @@ public final class ActivityTaskBinding implements ViewBinding {
       }
 
       return new ActivityTaskBinding((RelativeLayout) rootView, TaskName, comment, creator,
-          deadline, guzikBack, guzikRaport, isdone, points, roomviewlayout);
+          deadline, guzikBack, guzikRaport, points, roomviewlayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -12,12 +12,24 @@
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
     },
     {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_join_create_room.xml",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_join_create_room.xml"
+    },
+    {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_profile.xml",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_profile.xml"
     },
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_tasksdone.xml",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_tasksdone.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_taksdone_view.xml",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_taksdone_view.xml"
     },
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_tasks_view.xml",
@@ -42,6 +54,10 @@
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_task.xml",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_task.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_tasks_menu.xml",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_tasks_menu.xml"
     },
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_give_points.xml",

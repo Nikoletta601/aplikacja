@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+
+    tools:context=".tasks_menu">
+
+    <!--tytuł-->
+    <TextView
+        android:id="@+id/Title"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10sp"
+        android:layout_marginBottom="25sp"
+        android:text="Menu zadań" />
+
+    <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5sp"
+        android:adjustViewBounds="true"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bckg1"
+        android:id="@+id/tlo"/>
+    <ImageView
+        android:id="@+id/guzikBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5sp"
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="10sp"
+        android:adjustViewBounds="true"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:src="@drawable/back" />
+
+    <ImageView
+        android:id="@+id/guzikZadania"
+        android:src="@drawable/zadaniawtrakcie"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:textSize="20sp"
+        android:layout_marginBottom="0dp"
+        android:layout_below="@id/Title"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true" />
+    <TextView
+        android:id="@+id/zadaniaText"
+        android:layout_below="@id/guzikZadania"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zadania w trakcie"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="40sp" />
+
+    <ImageView
+        android:id="@+id/guzikZadaniaDone"
+        android:src="@drawable/zadaniadone"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_below="@id/zadaniaText"
+        android:layout_centerHorizontal="true"
+
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/zadaniadoneText"
+        android:layout_below="@id/guzikZadaniaDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ukończone zadania"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="40sp" />
+
+    <ImageView
+        android:id="@+id/guzikTwojeZadania"
+        android:src="@drawable/zadaniatwoje"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_below="@id/zadaniadoneText"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/zadaniatwojeText"
+        android:layout_below="@id/guzikTwojeZadania"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Twoje zadania"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="40sp" />
+
+
+</RelativeLayout>

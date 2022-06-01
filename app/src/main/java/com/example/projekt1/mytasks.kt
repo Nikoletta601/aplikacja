@@ -20,6 +20,9 @@ class mytasks: AppCompatActivity() {
     private var docId =""
     private var docId2=""
     private var userid=""
+
+    var tasksdonearray = ArrayList<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mytasks)
@@ -31,14 +34,30 @@ class mytasks: AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null){
             mail= firebaseUser.email.toString()
-            TasksList()
+            val db = FirebaseFirestore.getInstance()
+            db.collection("Users").get().addOnCompleteListener {
+                for(doc in it.result!!){
+                    if(doc.data.get("email") == firebaseAuth.currentUser?.email.toString())
+                        db.collection("Users").document(doc.id).collection("TasksDone").get().addOnCompleteListener { task->
+                            for(doc2 in task.result!!){
+                                tasksdonearray.add(doc2.id)
+
+                            }
+                            TasksList()
+                        }
+
+                }
+            }
+
         }else{
             startActivity(Intent(this,Login::class.java))
             finish()
         }
+
+
         binding.guzikBack.setOnClickListener{
             //powrót do profilu
-            startActivity(Intent(this, Profile::class.java))
+            startActivity(Intent(this, tasks_menu::class.java))
         }
     }
 
@@ -54,7 +73,8 @@ class mytasks: AppCompatActivity() {
                             var docsize = doc2.get("email") as ArrayList<String>
                             println(docsize)
                             for (i in docsize.indices) {
-                                if (docsize[i].toString() == firebaseAuth.currentUser?.email.toString()) {
+                                println(doc2.data.get("room"))
+                                if (docsize[i].toString() == firebaseAuth.currentUser?.email.toString() && !(tasksdonearray.contains(doc2.id))) {
                                     val roomid = doc2.data.get("room")
                                     val guzik = Button(this)
                                     guzik.width = 50

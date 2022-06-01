@@ -45,9 +45,9 @@
         android:id="@+id/guzikJoinRoom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dołącz"
+        android:layout_below="@id/roomJoinTil"
         android:layout_marginTop="30sp"
-        android:layout_below="@id/roomJoinTil"/>
+        android:text="Dołącz" />
 
     <Button
         android:id="@+id/guzikBack"

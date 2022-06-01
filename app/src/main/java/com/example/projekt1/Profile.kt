@@ -38,7 +38,7 @@ class Profile : AppCompatActivity() {
             finish()
         }
         binding.guzikShowMyTasks.setOnClickListener {
-            startActivity(Intent(this,mytasks::class.java))
+            startActivity(Intent(this,tasks_menu::class.java))
             finish()
         }
 

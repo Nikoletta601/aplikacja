@@ -41,19 +41,6 @@
         android:maxWidth="50dp"
         android:src="@drawable/back" />
     <ImageView
-        android:id="@+id/guzikCreateRoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="5sp"
-        android:layout_marginBottom="10sp"
-        android:adjustViewBounds="true"
-        android:maxHeight="50dp"
-        android:maxWidth="50dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/pen"/>
-    <ImageView
         android:id="@+id/guzikJoinRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,13 +55,13 @@
         android:scaleType="fitCenter"
         android:src="@drawable/plus" />
 
+
     <LinearLayout
         android:id="@+id/roomviewlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/Tytul"
         android:orientation="vertical"
-
         tools:context=".RoomView">
 
     </LinearLayout>

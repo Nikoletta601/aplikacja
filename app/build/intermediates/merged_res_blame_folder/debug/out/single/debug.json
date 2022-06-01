@@ -1,5 +1,109 @@
 [
     {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_createroom.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\createroom.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_pencil.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\pencil.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_tasks_menu.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_tasks_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_create_task.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_create_task.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_mytasks.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_mytasks.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_joinroom.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\joinroom.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_guestlist.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_guestlist.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_bell.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\bell.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_taksdone_view.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_taksdone_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_show_my_rooms.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_show_my_rooms.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_join_create_room.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_join_create_room.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_profile.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_room_view.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_room_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_tasks_view.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_tasks_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_bckg1.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\bckg1.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_logotask.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\logotask.png"
+    },
+    {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
@@ -16,40 +120,20 @@
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_raport.xml"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_pencil.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\pencil.png"
-    },
-    {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_plus.png.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\plus.png"
+    },
+    {
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_tasksdone.xml.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_tasksdone.xml"
     },
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_task.xml.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_task.xml"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_create_task.xml.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_create_task.xml"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_mytasks.xml.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_mytasks.xml"
     },
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_settings.png.flat",
@@ -68,14 +152,6 @@
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_give_points.xml"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_guestlist.xml.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_guestlist.xml"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_bell.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\bell.png"
-    },
-    {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
@@ -84,36 +160,20 @@
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_zadaniadone.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\zadaniadone.png"
     },
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_tasks.png.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\tasks.png"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_show_my_rooms.xml.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_show_my_rooms.xml"
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_zadaniawtrakcie.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\zadaniawtrakcie.png"
     },
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_create_room.xml.flat",
@@ -128,43 +188,19 @@
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_profile.xml.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_profile.xml"
-    },
-    {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_pen.png.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\pen.png"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_zadaniatwoje.png.flat",
+        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\zadaniatwoje.png"
     },
     {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_room_view.xml.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_room_view.xml"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_tasks_view.xml.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\layout\\activity_tasks_view.xml"
-    },
-    {
         "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_users.png.flat",
         "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\users.png"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_bckg1.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\bckg1.png"
-    },
-    {
-        "merged": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\build\\intermediates\\merged_res\\debug\\drawable_logotask.png.flat",
-        "source": "C:\\Users\\barte\\AndroidStudioProjects\\projekt1\\app\\src\\main\\res\\drawable\\logotask.png"
     }
 ]
