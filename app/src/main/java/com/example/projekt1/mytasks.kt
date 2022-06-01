@@ -38,7 +38,7 @@ class mytasks: AppCompatActivity() {
         }
         binding.guzikBack.setOnClickListener{
             //powrót do profilu
-            startActivity(Intent(this, ShowMyRooms::class.java))
+            startActivity(Intent(this, Profile::class.java))
         }
     }
 

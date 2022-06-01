@@ -25,18 +25,18 @@
         android:layout_marginBottom="10sp"
         android:layout_marginLeft="15sp"
         android:textSize="20sp"
-        android:layout_below="@id/TaskName"
+        android:layout_below="@id/deadline"
         android:textColor="@color/black"
         />
     <TextView
         android:id="@+id/points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Punkty: 0/0"
+        android:text="Punkty do zdobycia: 0"
         android:layout_marginBottom="10sp"
         android:layout_marginLeft="15sp"
         android:textSize="20sp"
-        android:layout_below="@id/comment"
+        android:layout_below="@id/creator"
         android:textColor="@color/black"
         />
     <TextView
@@ -58,19 +58,8 @@
         android:layout_marginBottom="10sp"
         android:layout_marginLeft="15sp"
         android:textSize="20sp"
-        android:layout_below="@id/deadline"
+        android:layout_below="@id/TaskName"
         android:textColor="@color/black"
-        />
-    <TextView
-        android:id="@+id/isdone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nie wykonane"
-        android:layout_marginBottom="10sp"
-        android:layout_marginLeft="15sp"
-        android:textSize="20sp"
-        android:layout_below="@id/creator"
-        android:textColor="@color/red"
         />
 
     <ImageView
@@ -99,7 +88,7 @@
         android:id="@+id/guzikRaport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/isdone"
+        android:layout_below="@+id/comment"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:layout_marginTop="30dp"

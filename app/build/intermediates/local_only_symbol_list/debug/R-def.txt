@@ -56,7 +56,6 @@ id guzikTasks
 id guzikUsers
 id guzikWyloguj
 id hint
-id isdone
 id nameEt
 id nameTil
 id passwordEt

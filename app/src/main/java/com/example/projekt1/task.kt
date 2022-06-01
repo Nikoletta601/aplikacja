@@ -21,7 +21,7 @@ class task : AppCompatActivity() {
 
     private var mail =""//logged in user's mail from database
     private var docId2 =""//task id
-    private var userid = ""
+    private var roomid = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task)
@@ -33,6 +33,7 @@ class task : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null){
             mail= firebaseUser.email.toString()
+            roomid = intent.getStringExtra("id").toString()
             docId2 = intent.getStringExtra("id2").toString()
             TasksList()
         }else{
@@ -41,55 +42,36 @@ class task : AppCompatActivity() {
         }
         binding.guzikBack.setOnClickListener {
             //powrót do profilu
-            startActivity(Intent(this, ShowMyRooms::class.java))
+            startActivity(Intent(this, mytasks::class.java))
         }
         binding.guzikRaport.setOnClickListener {
             startActivity(Intent(this, Raport::class.java))
         }
     }
-    fun TasksList(){
+    fun TasksList() {
         val db = FirebaseFirestore.getInstance()
         val result: StringBuffer = StringBuffer()
-        db.collection("Users").get().addOnCompleteListener {
-            for( doc in it.result!!){
-                userid = doc.id
-                if (doc.get("email").toString() == mail.toString()){
-                    db.collection("Users").document(userid).collection("Tasks")
-                        .get()
-                        .addOnCompleteListener { task->
-                            if(task.isSuccessful)
-                                for(doc2 in task.result!!){
-                                    if(doc2.id == docId2){//if task id from for is equal to task id
-                                        val email = doc2.data.get("email")
-                                        if(email == mail){
-                                            val guzik = Button(this)
-                                            guzik.width = 50
-                                            guzik.height = 50
-                                            guzik.text = doc2.data.get("tresc").toString()
-                                            binding.TaskName.text = doc2.data.get("tresc").toString()
-                                            binding.comment.text = "Komentarz: " + doc2.data.get("komentarz").toString()
-                                            binding.deadline.text = "Termin wykonania: "+doc2.data.get("deadline").toString()
-                                            binding.points.text = "Punkty: "+doc2.data.get("punkty").toString() + "/" + doc2.data.get("maxpunkty").toString()
-                                            binding.creator.text = "Autor zadania: "+doc2.data.get("creator").toString()
-                                            val taskdone = doc2.data.get("wykonane")
-                                            if(taskdone.toString() == "0"){
-                                                binding.isdone.text = "Nie wykonane"
-                                            }else{
-                                                binding.isdone.text = "Wykonane"
-                                                //binding.isdone.setTextColor(0x37FF00)
-                                            }
-                                            break
-                                        }
-                                    }
-
-                                }
-
-                        }
-                    break
+        db.collection("Rooms").document(roomid).collection("Tasks").get().addOnCompleteListener {
+            val result: StringBuffer = StringBuffer()
+            if (it.isSuccessful) {
+                for (doc in it.result!!) {
+                    if (doc.id == docId2) {
+                        val guzik = Button(this)
+                        guzik.width = 50
+                        guzik.height = 50
+                        guzik.text = doc.data.get("tresc").toString()
+                        binding.TaskName.text = doc.data.get("tresc").toString()
+                        binding.comment.text = "Komentarz: " + doc.data.get("komentarz").toString()
+                        binding.deadline.text =
+                            "Termin wykonania: " + doc.data.get("deadline").toString()
+                        binding.points.text = "Punkty do zdobycia: " + doc.data.get("maxpunkty").toString()
+                        binding.creator.text =
+                            "Autor zadania: " + doc.data.get("creator").toString()
+                        break
+                    }
                 }
             }
         }
-
     }
 }
 
