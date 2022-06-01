@@ -42,6 +42,7 @@ id commentWykonawcy
 id commentwykonawcy
 id creator
 id deadline
+id dlakogo
 id emailEt
 id emailTV
 id emailTil
@@ -92,6 +93,7 @@ id terminzwrocenia
 id tlo
 id tytul
 id who
+id wykonane
 id zadaniaText
 id zadaniadoneText
 id zadaniatwojeText

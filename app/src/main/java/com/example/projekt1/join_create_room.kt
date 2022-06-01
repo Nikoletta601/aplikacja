@@ -27,7 +27,6 @@ class join_create_room : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.guzikBack.setOnClickListener {
-            firebaseAuth.signOut()
             startActivity(Intent(this,ShowMyRooms::class.java))
             finish()
         }

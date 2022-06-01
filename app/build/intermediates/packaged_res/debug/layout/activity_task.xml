@@ -61,6 +61,28 @@
         android:layout_below="@id/TaskName"
         android:textColor="@color/black"
         />
+    <TextView
+        android:id="@+id/dlakogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dla: "
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="15sp"
+        android:textSize="20sp"
+        android:layout_below="@id/comment"
+        android:textColor="@color/black"
+        />
+    <TextView
+        android:id="@+id/wykonane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nie wykonane "
+        android:layout_marginBottom="10sp"
+        android:layout_marginLeft="15sp"
+        android:textSize="20sp"
+        android:layout_below="@id/dlakogo"
+        android:textColor="@color/black"
+        />
 
     <ImageView
         android:layout_alignParentBottom="true"
@@ -88,7 +110,7 @@
         android:id="@+id/guzikRaport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/comment"
+        android:layout_below="@+id/wykonane"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:layout_marginTop="30dp"

@@ -22,6 +22,7 @@ class tasks_view : AppCompatActivity() {
     private var docId =""
     private var docId2=""
     private var userid=""
+    var tasksdonearray = java.util.ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tasks_view)
@@ -34,7 +35,21 @@ class tasks_view : AppCompatActivity() {
         if (firebaseUser != null){
             mail= firebaseUser.email.toString()
             docId = intent.getStringExtra("id2").toString()
-            TasksList()
+            val db = FirebaseFirestore.getInstance()
+            db.collection("Users").get().addOnCompleteListener {
+                for (doc in it.result!!) {
+                    if (doc.data.get("email") == firebaseAuth.currentUser?.email.toString())
+                        db.collection("Users").document(doc.id).collection("TasksDone").get()
+                            .addOnCompleteListener { task ->
+                                for (doc2 in task.result!!) {
+                                    tasksdonearray.add(doc2.id)
+
+                                }
+                                TasksList()
+                            }
+
+                }
+            }
         }else{
             startActivity(Intent(this,Login::class.java))
             finish()
@@ -52,42 +67,30 @@ class tasks_view : AppCompatActivity() {
     }
     fun TasksList(){
         val db = FirebaseFirestore.getInstance()
-        db.collection("Users").get().addOnCompleteListener {
+        db.collection("Rooms").document(docId).collection("Tasks").get().addOnCompleteListener {
             for( doc in it.result!!){
-                userid = doc.id
-                if (doc.get("email").toString() == firebaseAuth.currentUser?.email.toString()){
-                    val result: StringBuffer = StringBuffer()
-                    db.collection("Users").document(userid).collection("Tasks")
-                        .get()
-                        .addOnCompleteListener { task2->
-                            if(task2.isSuccessful)
-                                for(doc2 in task2.result!!){
-                                    val roomid = doc2.data.get("room")
+                                    val roomid = doc.data.get("room")
                                     if(roomid == docId){
                                         val guzik = Button(this)
                                         guzik.width = 50
                                         guzik.height = 50
-                                        guzik.text = doc2.data.get("tresc").toString()
-                                        val docId2 = doc2.id.toString()
+                                        guzik.text = doc.data.get("tresc").toString()
+                                        val docId2 = doc.id
                                         guzik.setOnClickListener{
                                             val intent = Intent(this,task::class.java)
                                             intent.putExtra("id",docId)
                                             intent.putExtra("id2",docId2)// wyslanie danych do pliku z intent
+                                            intent.putExtra("back", "1")
+                                            intent.putStringArrayListExtra("tasksdonearray", tasksdonearray)
                                             startActivity(intent)
                                             finish()
                                         }
                                         binding.roomviewlayout.addView(guzik)
-                                        break
                                     }
                                 }
 
-                        }
-                    break
-                }
             }
         }
-
-                    }
 }
 
 

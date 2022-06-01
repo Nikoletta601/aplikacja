@@ -22,6 +22,8 @@ class task : AppCompatActivity() {
     private var mail =""//logged in user's mail from database
     private var docId2 =""//task id
     private var roomid = ""
+    private var backvalue = "0"
+    var tasksdonearray = java.util.ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task)
@@ -35,6 +37,8 @@ class task : AppCompatActivity() {
             mail= firebaseUser.email.toString()
             roomid = intent.getStringExtra("id").toString()
             docId2 = intent.getStringExtra("id2").toString()
+            backvalue = intent.getStringExtra("back").toString()
+            tasksdonearray= intent.getStringArrayListExtra("tasksdonearray") as java.util.ArrayList<String>
             TasksList()
         }else{
             startActivity(Intent(this,Login::class.java))
@@ -42,7 +46,15 @@ class task : AppCompatActivity() {
         }
         binding.guzikBack.setOnClickListener {
             //powrót do profilu
-            startActivity(Intent(this, mytasks::class.java))
+            if(backvalue == "0"){
+                startActivity(Intent(this, mytasks::class.java))
+            }else if(backvalue == "1"){
+                val intent = Intent(this,tasks_view::class.java)
+                intent.putExtra("id2",roomid)// wyslanie danych do pliku z intent
+                startActivity(intent)
+
+            }
+
         }
         binding.guzikRaport.setOnClickListener {
             startActivity(Intent(this, Raport::class.java))
@@ -56,6 +68,7 @@ class task : AppCompatActivity() {
             if (it.isSuccessful) {
                 for (doc in it.result!!) {
                     if (doc.id == docId2) {
+                        println(doc.id)
                         val guzik = Button(this)
                         guzik.width = 50
                         guzik.height = 50
@@ -67,6 +80,21 @@ class task : AppCompatActivity() {
                         binding.points.text = "Punkty do zdobycia: " + doc.data.get("maxpunkty").toString()
                         binding.creator.text =
                             "Autor zadania: " + doc.data.get("creator").toString()
+                        if(backvalue == "1"){
+                            var docsize = doc.get("email") as ArrayList<String>
+                            for (i in docsize.indices) {
+                                binding.dlakogo.text = binding.dlakogo.text.toString() +"\n" + docsize[i]
+                            }
+                            for (i in tasksdonearray.indices){
+                                if(tasksdonearray[i] == doc.id){
+                                    binding.wykonane.text = "Wykonane"
+                                    break
+                                }
+                            }
+                        }else{
+                            binding.dlakogo.text = " "
+                            binding.wykonane.text = " "
+                        }
                         break
                     }
                 }

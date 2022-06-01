@@ -65,7 +65,7 @@ class JoinRoom : AppCompatActivity() {
 
         binding.guzikBack.setOnClickListener{
             //powrot do profilu
-            startActivity(Intent(this, ShowMyRooms::class.java))
+            startActivity(Intent(this, join_create_room::class.java))
         }
     }
 

@@ -86,6 +86,8 @@ class mytasks: AppCompatActivity() {
                                             Intent(this, com.example.projekt1.task::class.java)
                                         intent.putExtra("id", docId)
                                         intent.putExtra("id2", docId2)// wyslanie danych do pliku z intent
+                                        intent.putExtra("back", "0")
+                                        intent.putStringArrayListExtra("tasksdonearray", tasksdonearray)
                                         startActivity(intent)
                                         finish()
                                     }

@@ -2750,6 +2750,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id dlakogo
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -3117,6 +3118,7 @@ id withinBounds
 id wrap
 id wrap_content
 id wrap_content_constrained
+id wykonane
 id x_left
 id x_right
 id zadaniaText

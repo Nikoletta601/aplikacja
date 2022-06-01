@@ -35,6 +35,9 @@ public final class ActivityTaskBinding implements ViewBinding {
   public final TextView deadline;
 
   @NonNull
+  public final TextView dlakogo;
+
+  @NonNull
   public final ImageView guzikBack;
 
   @NonNull
@@ -46,19 +49,24 @@ public final class ActivityTaskBinding implements ViewBinding {
   @NonNull
   public final LinearLayout roomviewlayout;
 
+  @NonNull
+  public final TextView wykonane;
+
   private ActivityTaskBinding(@NonNull RelativeLayout rootView, @NonNull TextView TaskName,
       @NonNull TextView comment, @NonNull TextView creator, @NonNull TextView deadline,
-      @NonNull ImageView guzikBack, @NonNull Button guzikRaport, @NonNull TextView points,
-      @NonNull LinearLayout roomviewlayout) {
+      @NonNull TextView dlakogo, @NonNull ImageView guzikBack, @NonNull Button guzikRaport,
+      @NonNull TextView points, @NonNull LinearLayout roomviewlayout, @NonNull TextView wykonane) {
     this.rootView = rootView;
     this.TaskName = TaskName;
     this.comment = comment;
     this.creator = creator;
     this.deadline = deadline;
+    this.dlakogo = dlakogo;
     this.guzikBack = guzikBack;
     this.guzikRaport = guzikRaport;
     this.points = points;
     this.roomviewlayout = roomviewlayout;
+    this.wykonane = wykonane;
   }
 
   @Override
@@ -112,6 +120,12 @@ public final class ActivityTaskBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.dlakogo;
+      TextView dlakogo = ViewBindings.findChildViewById(rootView, id);
+      if (dlakogo == null) {
+        break missingId;
+      }
+
       id = R.id.guzikBack;
       ImageView guzikBack = ViewBindings.findChildViewById(rootView, id);
       if (guzikBack == null) {
@@ -136,8 +150,14 @@ public final class ActivityTaskBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.wykonane;
+      TextView wykonane = ViewBindings.findChildViewById(rootView, id);
+      if (wykonane == null) {
+        break missingId;
+      }
+
       return new ActivityTaskBinding((RelativeLayout) rootView, TaskName, comment, creator,
-          deadline, guzikBack, guzikRaport, points, roomviewlayout);
+          deadline, dlakogo, guzikBack, guzikRaport, points, roomviewlayout, wykonane);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
