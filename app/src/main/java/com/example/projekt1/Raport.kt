@@ -35,6 +35,7 @@ class Raport : AppCompatActivity() {
     private var docId = ""
     private var docId2 = ""
     private var userid = ""
+    private var creator = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -50,9 +51,10 @@ class Raport : AppCompatActivity() {
             mail = firebaseUser.email.toString()
             docId = intent.getStringExtra("id").toString()
             docId2 = intent.getStringExtra("id2").toString()
-            Raport()
+            //Raport()
         } else {
             startActivity(Intent(this, Login::class.java))
+            //Raport()
             finish()
         }
 
@@ -61,9 +63,15 @@ class Raport : AppCompatActivity() {
             startActivity(Intent(this, task::class.java))
         }
 
-        binding.guzikRaport.setOnClickListener {
-            //powrót do zadania
+        binding.guzikWykonane.setOnClickListener {
             Raport()
+            Toast.makeText(this, "Zdano raport", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, mytasks::class.java))
+
+            //powrót do zadania
+
+            //startActivity(Intent(this, taskdone::class.java))
+
         }
 
     }
@@ -71,12 +79,58 @@ class Raport : AppCompatActivity() {
     fun Raport() {
         val db = FirebaseFirestore.getInstance()
         val result: StringBuffer = StringBuffer()
-        db.collection("Users").get().addOnCompleteListener {
-            for (doc in it.result!!) {
-                userid = doc.id
-                if (doc.get("email")
-                        .toString() == mail.toString()
-                ) { // jesli prawidlowy uzytkownik to przechodzimy dalej
+/*
+        db.collection("Users").document(userid).collection("Tasks")
+            .get()
+            .addOnCompleteListener() { task -> //TODO prawdopodobnie addOnCompleteListener nic nie zwraca
+                if (task.isSuccessful)
+                    for (doc2 in task.result!!) {
+                        if (doc2.id == docId2) {
+                            val email = doc2.data.get("email")
+                            if (email == mail) {
+                                //val creatortask = doc2.get("creator")
+                                creator = doc2.get("creator").toString()
+                            }
+                            break
+                        }
+
+                    }
+*/
+                db.collection("Users").get().addOnCompleteListener {
+                    for (doc in it.result!!) {
+                        userid = doc.id
+
+                        if (doc.get("email")
+                                .toString() == mail.toString()
+                        ) { // jesli prawidlowy uzytkownik to przechodzimy dalej
+                            db.collection("Users").document(userid).collection("Torate")
+                                .get()
+                                .addOnCompleteListener {
+                                    val task: MutableMap<String, Any> =
+                                        HashMap()//stworzenie nowego dokumentu
+                                    task["komentarz"] = binding.commentwykonawcy.text.toString()
+                                    //task["roomid"] = docId.toString()
+                                    task["wykonawca"] = userid.toString()
+                                    //task["creator"] = creator
+
+                                    db.collection("Users").document(userid).collection("Torate")
+                                        .add(task)
+                                }
+
+                            //startActivity(Intent(this, mytasks::class.java))
+
+
+                            break
+                        }
+
+                    }
+                }
+            }
+
+
+    }
+
+/*
                     db.collection("Users").document(userid).collection("Tasks")
                         .get()
                         .addOnCompleteListener() { task -> //TODO prawdopodobnie addOnCompleteListener nic nie zwraca
@@ -85,6 +139,7 @@ class Raport : AppCompatActivity() {
                                     if (doc2.id == docId2) {
                                         val email = doc2.data.get("email")
                                         if (email == mail) {
+                                        val creator = binding.creator.text.toString()
                                             val tekst = binding.commentwykonawcy.text.toString()
                                             val komentarz = hashMapOf(
                                                 "komentarzW" to binding.commentwykonawcy.text.toString()
@@ -95,18 +150,13 @@ class Raport : AppCompatActivity() {
                                     }
 
                                 }
-                        }
-                    break
-                }
+                        }*/
 
-            }
-        }
-    }
 
 //                                            db.collection("Users").document(userid).collection("Tasks").document(docId2).get("commentWykonawcy").setValue()
 
 
-        //var commentW=binding.commentWykonawcy.text.toString()
+//var commentW=binding.commentWykonawcy.text.toString()
 //                                            db.collection("Users").document(userid).collection("Tasks")
 //                                                .get()
 //                                                .addOnCompleteListener{
@@ -118,21 +168,11 @@ class Raport : AppCompatActivity() {
 //                                                }
 //                                                    task["komentarzW"]=binding.commentWykonawcy.text.toString()
 
-        //doc2
-        //.add(task["komentarzW"]=binding.commentWykonawcy.text.toString())
+//doc2
+//.add(task["komentarzW"]=binding.commentWykonawcy.text.toString())
 
-        //var newPostKey = db.collection("Users").document(userid).collection("Tasks").ref()
-        //binding.commentwykonawcy.text = "Komentarz wykonawcy: " + doc2.data.get("komentarzW").toString()
-
-
-/*
-    fun Update(e){
-        val db=FirebaseFirestore.getInstance()
-        val task=db.collection("Users").document(userid).collection("Tasks").document(docId2)
-        task.update({komentarzW: e.target.value})
-
-    }
-*/
+//var newPostKey = db.collection("Users").document(userid).collection("Tasks").ref()
+//binding.commentwykonawcy.text = "Komentarz wykonawcy: " + doc2.data.get("komentarzW").toString()
 
 
 /*
@@ -144,4 +184,12 @@ class Raport : AppCompatActivity() {
     }
 */
 
-}
+
+/*
+    fun Update(e){
+        val db=FirebaseFirestore.getInstance()
+        val task=db.collection("Users").document(userid).collection("Tasks").document(docId2)
+        task.update({komentarzW: e.target.value})
+
+    }
+*/

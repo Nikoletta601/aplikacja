@@ -10,6 +10,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 
+
+//wyswietla wykonane zadanie
 class taskdone: AppCompatActivity() {
     private lateinit var binding: ActivityTasksdoneBinding
     private lateinit var firebaseAuth: FirebaseAuth

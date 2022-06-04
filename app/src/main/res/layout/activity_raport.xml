@@ -12,12 +12,12 @@
     <!--tytuł-->
     <TextView
         android:id="@+id/TaskName"
+        style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="task_name"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15sp"
-        style="@style/TextAppearance.AppCompat.Headline"/>
+        android:text="task_name" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/commentWykonawcy"
@@ -37,7 +37,7 @@
 
 
     <Button
-        android:id="@+id/guzikRaport"
+        android:id="@+id/guzikWykonane"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/commentWykonawcy"
