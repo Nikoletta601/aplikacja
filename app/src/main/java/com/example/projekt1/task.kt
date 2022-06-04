@@ -57,7 +57,16 @@ class task : AppCompatActivity() {
 
         }
         binding.guzikRaport.setOnClickListener {
-            startActivity(Intent(this, Raport::class.java))
+            //startActivity(Intent(this, Raport::class.java))
+
+                val intent = Intent(this,Raport::class.java)
+                //intent.putExtra("id",docId)
+                intent.putExtra("taskId",docId2)// wyslanie danych do pliku z intent
+                //intent.putExtra("back", "1")
+                //intent.putStringArrayListExtra("tasksdonearray", tasksdonearray)
+                startActivity(intent)
+                //finish()
+
         }
     }
     fun TasksList() {

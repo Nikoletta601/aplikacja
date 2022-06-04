@@ -36,6 +36,7 @@ class Raport : AppCompatActivity() {
     private var docId2 = ""
     private var userid = ""
     private var creator = ""
+    private var taskId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -50,6 +51,7 @@ class Raport : AppCompatActivity() {
         if (firebaseUser != null) {
             mail = firebaseUser.email.toString()
             docId = intent.getStringExtra("id").toString()
+            taskId = intent.getStringExtra("taskId").toString()
             docId2 = intent.getStringExtra("id2").toString()
             //Raport()
         } else {
@@ -67,10 +69,6 @@ class Raport : AppCompatActivity() {
             Raport()
             Toast.makeText(this, "Zdano raport", Toast.LENGTH_SHORT).show()
             startActivity(Intent(this, mytasks::class.java))
-
-            //powrót do zadania
-
-            //startActivity(Intent(this, taskdone::class.java))
 
         }
 
@@ -102,14 +100,14 @@ class Raport : AppCompatActivity() {
 
                         if (doc.get("email")
                                 .toString() == mail.toString()
-                        ) { // jesli prawidlowy uzytkownik to przechodzimy dalej
+                        ) {
                             db.collection("Users").document(userid).collection("Torate")
                                 .get()
                                 .addOnCompleteListener {
                                     val task: MutableMap<String, Any> =
                                         HashMap()//stworzenie nowego dokumentu
                                     task["komentarz"] = binding.commentwykonawcy.text.toString()
-                                    //task["roomid"] = docId.toString()
+                                    task["taskid"] = taskId.toString()
                                     task["wykonawca"] = userid.toString()
                                     //task["creator"] = creator
 
@@ -117,19 +115,45 @@ class Raport : AppCompatActivity() {
                                         .add(task)
                                 }
 
-                            //startActivity(Intent(this, mytasks::class.java))
-
-
                             break
                         }
-
                     }
                 }
             }
-
-
     }
+/*
+ fun Zmiendane(){
+     val db = FirebaseFirestore.getInstance()
+     val result: StringBuffer = StringBuffer()
+     db.collection("Rooms").get().addOnCompleteListener {
+         for (doc in it.result!!) {
+             userid = doc.id
 
+             if (doc.get("email")
+                     .toString() == mail.toString()
+             ) {
+                 db.collection("Users").document(userid).collection("Tasks")
+         .get()
+         .addOnCompleteListener() { task -> //TODO prawdopodobnie addOnCompleteListener nic nie zwraca
+             if (task.isSuccessful)
+                 for (doc2 in task.result!!) {
+                     if (doc2.id == docId2) {
+                         val email = doc2.data.get("email")
+                         if (email == mail) {
+                             val creator = binding.creator.text.toString()
+                             val tekst = binding.commentwykonawcy.text.toString()
+                             val komentarz = hashMapOf(
+                                 "komentarzW" to binding.commentwykonawcy.text.toString()
+                             )
+                             db.collection("Users").document(userid).collection("Tasks")
+                                 .document(docId2).set(komentarz)
+                         }
+                         break
+                     }
+
+                 }
+         }
+ }
 /*
                     db.collection("Users").document(userid).collection("Tasks")
                         .get()
