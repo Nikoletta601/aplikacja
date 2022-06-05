@@ -2574,6 +2574,7 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id CreateText
+id Creatorcomment
 id FUNCTION
 id JoinText
 id META
@@ -2592,6 +2593,7 @@ id TOP_START
 id TaskName
 id Title
 id Tytul
+id Wykonawcacomment
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2807,17 +2809,18 @@ id guzikEditProfile
 id guzikJoinRoom
 id guzikLogin
 id guzikNotifications
+id guzikOcen
 id guzikRaport
 id guzikReg
 id guzikSettings
 id guzikShowMyRooms
 id guzikShowMyTasks
 id guzikTasks
-id guzikTwojeZadania
 id guzikUsers
 id guzikWykonane
 id guzikWyloguj
 id guzikZadania
+id guzikZadaniaDoOceny
 id guzikZadaniaDone
 id header_title
 id hideable
@@ -2880,6 +2883,7 @@ id material_timepicker_mode_button
 id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
+id maxpoints
 id message
 id middle
 id mini
@@ -3120,11 +3124,12 @@ id wrap
 id wrap_content
 id wrap_content_constrained
 id wykonane
+id wykonawca
 id x_left
 id x_right
+id zadaniaDoOcenyText
 id zadaniaText
 id zadaniadoneText
-id zadaniatwojeText
 id zero_corner_chip
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
@@ -3220,6 +3225,8 @@ layout activity_join_create_room
 layout activity_join_room
 layout activity_login
 layout activity_mytasks
+layout activity_otherstasks
+layout activity_otherstasks_view
 layout activity_profile
 layout activity_raport
 layout activity_room_view

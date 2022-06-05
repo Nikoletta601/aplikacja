@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_otherstasks.xml",
+        "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_otherstasks.xml"
+    },
+    {
         "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_tasksdone.xml",
         "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_tasksdone.xml"
     },
@@ -70,5 +74,9 @@
     {
         "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_taksdone_view.xml",
         "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_taksdone_view.xml"
+    },
+    {
+        "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_otherstasks_view.xml",
+        "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_otherstasks_view.xml"
     }
 ]

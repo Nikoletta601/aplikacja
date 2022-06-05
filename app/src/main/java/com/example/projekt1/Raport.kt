@@ -58,7 +58,6 @@ class Raport : AppCompatActivity() {
             //Raport()
         } else {
             startActivity(Intent(this, Login::class.java))
-            //Raport()
             finish()
         }
 

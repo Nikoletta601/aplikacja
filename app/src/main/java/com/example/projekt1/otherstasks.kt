@@ -1,20 +1,16 @@
 package com.example.projekt1
-/*
+
 import android.app.ProgressDialog
 import android.content.Intent
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Patterns
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.core.view.get
 import com.example.projekt1.databinding.ActivityRaportBinding
-import com.example.projekt1.databinding.ActivityothertasksBinding
+import com.example.projekt1.databinding.ActivityOtherstasksBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -23,11 +19,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.*
+//import java.util.*
 import kotlin.collections.HashMap
 
 class otherstasks : AppCompatActivity(){
-    private lateinit var binding: ActivityothertasksBinding
+    private lateinit var binding: ActivityOtherstasksBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var actionBar: ActionBar
     private lateinit var databaseReference: DatabaseReference
@@ -35,12 +31,15 @@ class otherstasks : AppCompatActivity(){
     private var mail = ""
     private var docId = ""
     private var docId2 = ""
+    private var userid = ""
+    private var roomid = ""
+
+    var tasksdonearray = ArrayList<String>() //dodanetest
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_raport)
-        binding = ActivityRaportBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_otherstasks)
+        binding = ActivityOtherstasksBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -48,32 +47,10 @@ class otherstasks : AppCompatActivity(){
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null) {
             mail = firebaseUser.email.toString()
-            docId = intent.getStringExtra("id").toString()
-            docId2 = intent.getStringExtra("id2").toString()
-
-            val db = FirebaseFirestore.getInstance()
-            db.collection("Users").get().addOnCompleteListener {
-                for (doc in it.result!!) {
-                    if (doc.data.get("email") == firebaseAuth.currentUser?.email.toString())
-                        db.collection("Users").document(doc.id).collection("TasksDone").get()
-                            .addOnCompleteListener { task ->
-                                for (doc2 in task.result!!) {
-                                    tasksdonearray.add(doc2.id)
-
-                                }
-                                TasksList()
-                            }
-
-                }
-            }
-
-
-
-
+            //TasksList()
 
         } else {
             startActivity(Intent(this, Login::class.java))
-            //Raport()
             finish()
         }
 
@@ -82,41 +59,56 @@ class otherstasks : AppCompatActivity(){
             startActivity(Intent(this, tasks_menu::class.java))
         }
 
-        binding.guzikWykonane.setOnClickListener {
-            Raport()
-            Toast.makeText(this, "Zdano raport", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(this, mytasks::class.java))
-
-        }
     }
 
-        fun TasksList(){
-            val db = FirebaseFirestore.getInstance()
-            db.collection("Rooms").document(docId).collection("Tasks").get().addOnCompleteListener {
-                for( doc in it.result!!){
-                    val roomid = doc.data.get("room")
-                    if(roomid == docId){
-                        val guzik = Button(this)
-                        guzik.width = 50
-                        guzik.height = 50
-                        guzik.text = doc.data.get("tresc").toString()
-                        val docId2 = doc.id
-                        guzik.setOnClickListener{
-                            val intent = Intent(this,task::class.java)
-                            intent.putExtra("id",docId)
-                            intent.putExtra("id2",docId2)// wyslanie danych do pliku z intent
-                            intent.putExtra("back", "1")
-                            intent.putStringArrayListExtra("tasksdonearray", tasksdonearray)
-                            startActivity(intent)
-                            finish()
+    fun TasksList() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Users").get().addOnCompleteListener {
+            for (doc in it.result!!) {
+                if (doc.data.get("email").toString() == firebaseAuth.currentUser?.email.toString()) {
+                    userid = doc.id
+                    //  val roomid = doc.data.get("room")
+                    db.collection("Users").document(userid).collection("Torate").get().addOnCompleteListener { task ->
+                        for (doc2 in task.result) {
+                            roomid = doc2.data.get("roomid").toString()
+                            println(roomid)
+
+                            db.collection("Rooms").document(roomid).collection("Tasks").get().addOnCompleteListener { task2 ->
+                                for (doc3 in task2.result) {
+                                    if (doc3.id == doc2.id) {
+                                        val guzik = Button(this)
+                                        guzik.width = 50
+                                        guzik.height = 50
+                                        guzik.text = doc3.data.get("tresc").toString()
+
+                                        var komentarzwykonawcy = doc2.data.get("komentarz").toString()
+                                        var taskid = doc2.data.get("taskid").toString()
+                                        var wykonawca = doc2.data.get("wykonawca").toString()
+                                        var creator = doc2.data.get("creator").toString()
+                                        var doctaskid = doc3.id
+
+                                        guzik.setOnClickListener {
+                                            val intent =
+                                                Intent(this, com.example.projekt1.otherstasks_view::class.java)
+                                            intent.putExtra("komentarzwykonawcy", komentarzwykonawcy)
+                                            intent.putExtra("wykonawca", wykonawca)// wyslanie danych do pliku z intent
+                                            intent.putExtra("creator", creator)
+                                            intent.putExtra("taskid", taskid)
+                                            intent.putExtra("doctaskid", doctaskid)
+
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                        binding.roomviewlayout.addView(guzik)
+                                    }
+                                }
+
+                            }
                         }
-                        binding.roomviewlayout.addView(guzik)
                     }
                 }
-
             }
         }
-
+    }
 }
 
- */

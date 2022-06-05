@@ -84,19 +84,19 @@
         android:layout_marginBottom="40sp" />
 
     <ImageView
-        android:id="@+id/guzikTwojeZadania"
-        android:src="@drawable/zadaniatwoje"
+        android:id="@+id/guzikZadaniaDoOceny"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_below="@id/zadaniadoneText"
         android:layout_centerHorizontal="true"
+        android:src="@drawable/zadaniatwoje"
         android:textSize="20sp" />
     <TextView
-        android:id="@+id/zadaniatwojeText"
-        android:layout_below="@id/guzikTwojeZadania"
+        android:id="@+id/zadaniaDoOcenyText"
+        android:layout_below="@id/guzikZadaniaDoOceny"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Twoje zadania"
+        android:text="Zadania do oceny"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
         android:layout_marginBottom="40sp" />

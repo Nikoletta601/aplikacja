@@ -12,6 +12,10 @@
         "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
     },
     {
+        "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_otherstasks_view.xml.flat",
+        "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_otherstasks_view.xml"
+    },
+    {
         "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_give_points.xml.flat",
         "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_give_points.xml"
     },
@@ -70,6 +74,10 @@
     {
         "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\merged_res\\debug\\drawable_zadaniadone.png.flat",
         "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\drawable\\zadaniadone.png"
+    },
+    {
+        "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_otherstasks.xml.flat",
+        "source": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\src\\main\\res\\layout\\activity_otherstasks.xml"
     },
     {
         "merged": "D:\\studia\\4 semestr\\inzynieria oprogramowania\\projekt1\\aplikacja\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_tasks_menu.xml.flat",

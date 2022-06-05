@@ -40,6 +40,10 @@ class tasks_menu : AppCompatActivity() {
             finish()
         }
 
+        binding.guzikZadaniaDoOceny.setOnClickListener{
+            startActivity(Intent(this,otherstasks::class.java))
+            finish()
+        }
     }
 
 }
