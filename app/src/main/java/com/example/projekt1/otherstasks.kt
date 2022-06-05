@@ -32,7 +32,6 @@ class otherstasks: AppCompatActivity(){
     private var roomid = ""
     private var taskid = ""
 
-    //var tasksdonearray = ArrayList<String>() //test
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

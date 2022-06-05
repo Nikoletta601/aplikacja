@@ -63,6 +63,7 @@ class otherstasks_view : AppCompatActivity() {
             intent.putExtra("wykonawca",wykonawca)
             intent.putExtra("roomid",roomId)
             intent.putExtra("maxpunkty",maxpoints)
+            intent.putExtra("taskid",taskidrate)
             startActivity(intent)
         }
     }
