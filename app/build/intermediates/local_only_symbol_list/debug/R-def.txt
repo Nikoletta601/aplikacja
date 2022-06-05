@@ -45,6 +45,9 @@ id commentWykonawcy
 id commentdooceny
 id commentwykonawcy
 id creator
+id dataOceny
+id dataWykonania
+id dataoddania
 id deadline
 id dlakogo
 id emailEt
@@ -96,8 +99,6 @@ id taskpunkty
 id tasktime
 id tasktr
 id tasktresc
-id terminoddania
-id terminzwrocenia
 id tlo
 id tytul
 id who

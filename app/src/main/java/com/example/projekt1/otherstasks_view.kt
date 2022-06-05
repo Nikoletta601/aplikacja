@@ -27,6 +27,7 @@ class otherstasks_view : AppCompatActivity() {
     private var doctaskid = "" //id task w kolekcji tasks w rooms //docid2
     private var roomId = ""
     private var maxpoints= ""
+    private var dataoddania= ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,11 +46,12 @@ class otherstasks_view : AppCompatActivity() {
             taskidrate = intent.getStringExtra("taskid").toString()
             doctaskid = intent.getStringExtra("doctaskid").toString()
             roomId = intent.getStringExtra("roomid").toString()
+            dataoddania = intent.getStringExtra("dataoddania").toString()
             Task()
 
             binding.wykonawca.text = "Wykonawca: " + wykonawca
             binding.Wykonawcacomment.text = "Wiadomosc od wykonawcy: " + komentarzwykonawcy
-
+            binding.dataoddania.text="Data wykonania: "+dataoddania
         } else {
             startActivity(Intent(this, Login::class.java))
             finish()
@@ -64,6 +66,7 @@ class otherstasks_view : AppCompatActivity() {
             intent.putExtra("roomid",roomId)
             intent.putExtra("maxpunkty",maxpoints)
             intent.putExtra("taskid",taskidrate)
+            intent.putExtra("datawykonania",dataoddania)
             startActivity(intent)
         }
     }
@@ -86,6 +89,7 @@ class otherstasks_view : AppCompatActivity() {
                             binding.TaskName.text = doc.get("tresc").toString()
                             binding.Creatorcomment.text = "Komentarz do zadania: "+doc.get("komentarz").toString()
                             //komentarz tworcy zdania przy tworzeniu go
+
                             binding.deadline.text = "Deadline: " +doc.get("deadline").toString()
                             binding.maxpoints.text = "Punktow do zdobycia: " +doc.get("maxpunkty").toString()
 

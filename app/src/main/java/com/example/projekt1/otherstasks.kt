@@ -85,6 +85,7 @@ class otherstasks: AppCompatActivity(){
                                         var creator = doc2.data.get("creator").toString()
                                         var doctaskid = doc3.id
                                         var roomId = doc2.data.get("roomid").toString()
+                                        var dataoddania = doc2.data.get("dataoddania").toString()
 
                                         guzik.setOnClickListener {
                                             val intent =
@@ -95,6 +96,7 @@ class otherstasks: AppCompatActivity(){
                                             intent.putExtra("taskid", taskid)
                                             intent.putExtra("roomid", roomId)
                                             intent.putExtra("doctaskid", doctaskid)
+                                            intent.putExtra("dataoddania", dataoddania)
 
                                             startActivity(intent)
                                             finish()

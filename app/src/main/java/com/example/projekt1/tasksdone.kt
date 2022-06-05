@@ -70,6 +70,9 @@ class taskdone: AppCompatActivity() {
                                             var punkty = doc2.data.get("punkty").toString()
                                             var taskroomid = doc2.data.get("roomid").toString()
                                             var docid = doc3.id
+                                            var datawykonania=doc2.data.get("dataWykonania").toString()
+                                            var dataoceny=doc2.data.get("dataOceny").toString()
+
                                             guzik.setOnClickListener {
                                                 val intent =
                                                     Intent(this, com.example.projekt1.taskdone_view::class.java)
@@ -77,6 +80,9 @@ class taskdone: AppCompatActivity() {
                                                 intent.putExtra("komentarz", komentarz)// wyslanie danych do pliku z intent
                                                 intent.putExtra("punkty", punkty)
                                                 intent.putExtra("taskroomid", taskroomid)
+                                                intent.putExtra("dataWykonania",datawykonania)
+                                                intent.putExtra("dataOceny",dataoceny)
+
 
                                                 startActivity(intent)
                                                 finish()

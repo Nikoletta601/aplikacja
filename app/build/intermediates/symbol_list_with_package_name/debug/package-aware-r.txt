@@ -2733,6 +2733,9 @@ id custom
 id customPanel
 id cut
 id dark
+id dataOceny
+id dataWykonania
+id dataoddania
 id date_picker_actions
 id deadline
 id decelerate
@@ -3065,8 +3068,6 @@ id taskpunkty
 id tasktime
 id tasktr
 id tasktresc
-id terminoddania
-id terminzwrocenia
 id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id test_radiobutton_android_button_tint

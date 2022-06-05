@@ -2732,6 +2732,9 @@ int id custom 0x7f08009c
 int id customPanel 0x7f08009d
 int id cut 0x7f08009e
 int id dark 0x7f08009f
+int id dataOceny 0x7f080238
+int id dataWykonania 0x7f080239
+int id dataoddania 0x7f08023a
 int id date_picker_actions 0x7f0800a0
 int id deadline 0x7f0800a1
 int id decelerate 0x7f0800a2
@@ -3064,8 +3067,6 @@ int id taskpunkty 0x7f0801e4
 int id tasktime 0x7f0801e5
 int id tasktr 0x7f0801e6
 int id tasktresc 0x7f0801e7
-int id terminoddania 0x7f0801e8
-int id terminzwrocenia 0x7f0801e9
 int id test_checkbox_android_button_tint 0x7f0801ea
 int id test_checkbox_app_button_tint 0x7f0801eb
 int id test_radiobutton_android_button_tint 0x7f0801ec

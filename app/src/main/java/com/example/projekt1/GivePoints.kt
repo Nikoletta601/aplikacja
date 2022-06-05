@@ -40,6 +40,7 @@ class GivePoints : AppCompatActivity() {
     private var roomId = ""
     private var maxpoints= ""
     private var taskId= ""
+    private var datawykonania= ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +58,7 @@ class GivePoints : AppCompatActivity() {
             roomId = intent.getStringExtra("roomid").toString()
             maxpoints= intent.getStringExtra("maxpunkty").toString()
             taskId= intent.getStringExtra("taskid").toString()
+            datawykonania=intent.getStringExtra("datawykonania").toString()
 
             binding.maxpunkty.text="/ "+ maxpoints
         } else {
@@ -98,6 +100,9 @@ class GivePoints : AppCompatActivity() {
                         //task["creator"] = creator
                         task["roomid"] = roomId
                         task["taskid"] = taskId
+                        task["dataWykonania"] = datawykonania
+                        val currentTime = Calendar.getInstance().time
+                        task["dataOceny"] = currentTime
 
                         db.collection("Users").document(wykonawca).collection("TaskDone")
                             .add(task)

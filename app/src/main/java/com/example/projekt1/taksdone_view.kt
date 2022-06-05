@@ -23,6 +23,9 @@ class taskdone_view : AppCompatActivity() {
     private var roomid = ""
     private var komentarz = ""
     private var punkty = ""
+    private var dataOceny = ""
+    private var dataWykonania = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task)
@@ -38,6 +41,11 @@ class taskdone_view : AppCompatActivity() {
             docId2 = intent.getStringExtra("docid").toString()
             komentarz = intent.getStringExtra("komentarz").toString()
             punkty = intent.getStringExtra("punkty").toString()
+            dataWykonania=intent.getStringExtra("dataWykonania").toString()
+            dataOceny=intent.getStringExtra("dataOceny").toString()
+
+            binding.dataWykonania.text="Oddano: "+dataWykonania
+            binding.dataOceny.text="Oceniono: "+dataOceny
 
             TasksList()
         }else{
