@@ -63,13 +63,9 @@ class task : AppCompatActivity() {
 
                 val intent = Intent(this,Raport::class.java)
                 intent.putExtra("creator",creator)
-            intent.putExtra("roomid",roomid)
+                intent.putExtra("roomid",roomid)
                 intent.putExtra("taskId",docId2)// wyslanie danych do pliku z intent
-                //intent.putExtra("back", "1")
-                //intent.putStringArrayListExtra("tasksdonearray", tasksdonearray)
                 startActivity(intent)
-                //finish()
-
         }
     }
     fun TasksList() {

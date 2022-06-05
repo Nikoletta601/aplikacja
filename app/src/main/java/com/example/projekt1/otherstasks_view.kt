@@ -26,6 +26,7 @@ class otherstasks_view : AppCompatActivity() {
     private var taskidrate = "" //id task w kolekcji toRate //roomid
     private var doctaskid = "" //id task w kolekcji tasks w rooms //docid2
     private var roomId = ""
+    private var maxpoints= ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,8 +46,7 @@ class otherstasks_view : AppCompatActivity() {
             doctaskid = intent.getStringExtra("doctaskid").toString()
             roomId = intent.getStringExtra("roomid").toString()
             Task()
-            //binding.Creatorcomment.text = roomId
-            //binding.deadline.text=taskidrate
+
             binding.wykonawca.text = "Wykonawca: " + wykonawca
             binding.Wykonawcacomment.text = "Wiadomosc od wykonawcy: " + komentarzwykonawcy
 
@@ -59,8 +59,11 @@ class otherstasks_view : AppCompatActivity() {
             startActivity(Intent(this, otherstasks::class.java))
         }
         binding.guzikOcen.setOnClickListener {
-            //powrót do profilu
-            startActivity(Intent(this, GivePoints::class.java))
+            val intent = Intent(this,GivePoints::class.java)
+            intent.putExtra("wykonawca",wykonawca)
+            intent.putExtra("roomid",roomId)
+            intent.putExtra("maxpunkty",maxpoints)
+            startActivity(intent)
         }
     }
 
@@ -84,6 +87,8 @@ class otherstasks_view : AppCompatActivity() {
                             //komentarz tworcy zdania przy tworzeniu go
                             binding.deadline.text = "Deadline: " +doc.get("deadline").toString()
                             binding.maxpoints.text = "Punktow do zdobycia: " +doc.get("maxpunkty").toString()
+
+                            maxpoints=doc.get("maxpunkty").toString()
                             break
                         }
                     }

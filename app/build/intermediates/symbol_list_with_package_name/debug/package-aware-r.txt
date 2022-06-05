@@ -2712,7 +2712,9 @@ id clockwise
 id closest
 id collapseActionView
 id comment
+id commentTworcy
 id commentWykonawcy
+id commentdooceny
 id commentwykonawcy
 id compress
 id confirm_button
@@ -2804,7 +2806,6 @@ id guzikBack
 id guzikBrakKonta
 id guzikCreateRoom
 id guzikCreateTask
-id guzikDone
 id guzikEditProfile
 id guzikJoinRoom
 id guzikLogin
@@ -2884,6 +2885,7 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id maxpoints
+id maxpunkty
 id message
 id middle
 id mini
@@ -2963,6 +2965,7 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
+id punkty
 id radio
 id ratio
 id rectangles

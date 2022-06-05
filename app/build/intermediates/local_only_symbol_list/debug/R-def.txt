@@ -40,7 +40,9 @@ id Title
 id Tytul
 id Wykonawcacomment
 id comment
+id commentTworcy
 id commentWykonawcy
+id commentdooceny
 id commentwykonawcy
 id creator
 id deadline
@@ -53,7 +55,6 @@ id guzikBack
 id guzikBrakKonta
 id guzikCreateRoom
 id guzikCreateTask
-id guzikDone
 id guzikEditProfile
 id guzikJoinRoom
 id guzikLogin
@@ -74,11 +75,13 @@ id guzikZadaniaDone
 id hint
 id komentarz
 id maxpoints
+id maxpunkty
 id nameEt
 id nameTil
 id passwordEt
 id passwordTil
 id points
+id punkty
 id roomJoinEt
 id roomJoinTil
 id roomNameEt

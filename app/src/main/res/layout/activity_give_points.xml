@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20sp"
 
-
-    tools:context=".tasks">
+    tools:context=".GivePoints">
 
     <!--tytuł-->
     <TextView
@@ -18,39 +18,48 @@
         android:layout_marginBottom="15sp"
         style="@style/TextAppearance.AppCompat.Headline"/>
 
-    <TextView
-        android:id="@+id/points"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/commentTworcy"
+        android:layout_width="389dp"
         android:layout_height="wrap_content"
-        android:text="Punkty: 0/0"
-        android:layout_marginBottom="10sp"
-        android:layout_marginLeft="15sp"
-        android:textSize="20sp"
-        android:layout_below="@id/TaskName"
-        android:textColor="@color/black"
-        />
-    <TextView
-        android:id="@+id/deadline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Termin wykonania: 00/00/0000 00:00:00"
-        android:layout_marginBottom="10sp"
-        android:layout_marginLeft="15sp"
-        android:textSize="20sp"
-        android:layout_below="@id/points"
-        android:textColor="@color/black"
-        />
+        android:layout_below="@+id/TaskName"
+        android:layout_marginTop="30dp">
 
-    <Button
-        android:id="@+id/guzikDone"
+        <EditText
+            android:id="@+id/commentdooceny"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Komentarz Wykonawcy"
+            android:inputType="textImeMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/points"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/commentTworcy"
+        android:layout_marginTop="30dp">
+
+        <EditText
+            android:id="@+id/punkty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Punkty"
+            android:inputType="textImeMultiLine" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/maxpunkty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10sp"
-        android:layout_marginLeft="15sp"
-        android:textSize="20sp"
-        android:layout_below="@id/deadline"
-        android:text="Wykonane" />
-        />
+        android:text="/max points"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="115sp"
+        android:layout_marginTop="180dp"
+        style="@style/TextAppearance.AppCompat.Headline"/>
+
 
     <ImageView
         android:layout_alignParentBottom="true"
@@ -61,6 +70,7 @@
         android:layout_height="70dp"
         android:scaleType="fitXY"
         android:src="@drawable/bckg1" />
+
     <ImageView
         android:id="@+id/guzikBack"
         android:layout_width="wrap_content"
@@ -76,26 +86,16 @@
         android:src="@drawable/back" />
 
     <Button
-        android:id="@+id/guzikRaport"
+        android:id="@+id/guzikOcen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/guzikDone"
+        android:layout_below="@+id/points"
         android:layout_marginLeft="20sp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="20sp"
         android:text="Zatwierdz" />
 
-    <LinearLayout
-        android:id="@+id/roomviewlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/RoomName"
-        android:orientation="vertical"
 
-        tools:context=".RoomView">
-
-
-    </LinearLayout>
 
 
 </RelativeLayout>

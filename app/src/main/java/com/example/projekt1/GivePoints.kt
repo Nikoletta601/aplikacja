@@ -32,78 +32,112 @@ class GivePoints : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private var mail =""
-    private var docId =""
-    private var docId2 =""
+    private var mail = ""
+    private var docId = ""
+    private var docId2 = ""
+    private var userid = ""
+    private var wykonawca = ""
+    private var roomId = ""
+    private var maxpoints= ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_give_points)
         binding = ActivityGivePointsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
+        //binding.guzikGivePoints.setOnClickListener {
+        //sprawdzenie czy użytkownik jest zalogowany
+        val firebaseUser = firebaseAuth.currentUser
+        if (firebaseUser != null) {
+            mail = firebaseUser.email.toString()
+            wykonawca = intent.getStringExtra("wykonawca").toString()
+            roomId = intent.getStringExtra("roomid").toString()
+            maxpoints= intent.getStringExtra("maxpunkty").toString()
 
+            binding.maxpunkty.text="/ "+ maxpoints
+        } else {
+            startActivity(Intent(this, Login::class.java))
+            finish()
+        }
+        //Points()
 
-       // binding.guzikGivePoints.setOnClickListener {
-            //sprawdzenie czy użytkownik jest zalogowany
-          //  val firebaseUser = firebaseAuth.currentUser
-          //  if (firebaseUser != null){
-          //      mail= firebaseUser.email.toString()
-          //  }else{
-          //      startActivity(Intent(this,Login::class.java))
-         //       finish()
-         //   }
-         //   Points()
+        //}
 
-       // }
-
-        binding.guzikBack.setOnClickListener{
+        binding.guzikBack.setOnClickListener {
             //powrot do profilu
             startActivity(Intent(this, ShowMyRooms::class.java))
         }
 
-        binding.guzikRaport.setOnClickListener{
-            val intent = Intent(this,task::class.java)
-            intent.putExtra("id",docId)
-            intent.putExtra("id2",docId2)// wyslanie danych do pliku z intent
-            startActivity(intent)
-            finish()
+        binding.guzikOcen.setOnClickListener {
+            Points()
+            Toast.makeText(this, "Oceniono", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, tasks_menu::class.java))
         }
     }
 
-    fun Points(){
+    fun Points() {
         val db = FirebaseFirestore.getInstance()
-        db.collection("Rooms").document(docId).collection("Tasks")
-            .get()
-            .addOnCompleteListener { points->
-                if(points.isSuccessful)
-                    for(doc2 in points.result!!){
-                        if(doc2.id == docId2){
+        val result: StringBuffer = StringBuffer()
+        /*db.collection("Users").get().addOnCompleteListener {
+            for (doc in it.result!!) {
+                if (doc.get("email").toString() == mail.toString()) {
+                    userid = doc.id
+                }
+*/
+                db.collection("Users").document(wykonawca).collection("TaskDone").get()
+                    .addOnCompleteListener {
+                        val task: MutableMap<String, Any> =
+                            HashMap()//stworzenie nowego dokumentu
+                        task["komentarzDoOceny"] = binding.commentdooceny.text.toString()
+                        task["punkty"] = binding.punkty.text.toString()
+                        //task["wykonawca"] = userid.toString()
+                        //task["creator"] = creator
+                        task["roomid"] = roomId
 
-                            val email = doc2.data.get("email")
-                            if(email == mail){
-
-                                //val points= doc2.data.get("punkty")
-
-                                binding.guzikDone.setOnClickListener{
-                                    binding.points.text = "Punkty: "+doc2.data.get("maxpunkty").toString() + "/" + doc2.data.get("maxpunkty").toString()
-                                    //points=doc2.data.get("maxpunkty").toString()
-                                }
-
-                                val guzik = Button(this)
-                                guzik.width = 50
-                                guzik.height = 50
-                                guzik.text = doc2.data.get("tresc").toString()
-                                binding.TaskName.text = doc2.data.get("tresc").toString()
-                                binding.deadline.text = "Termin wykonania: "+doc2.data.get("deadline").toString()
-                                binding.points.text = "Punkty: "+doc2.data.get("punkty").toString() + "/" + doc2.data.get("maxpunkty").toString()
-
-                                break
-                            }
-                        }
+                        db.collection("Users").document(wykonawca).collection("TaskDone")
+                            .add(task)
 
                     }
-
+                //break
             }
-
-    }
-
+        //}
+    //}
 }
+                /*
+                db.collection("Rooms").document(docId).collection("Tasks")
+                    .get()
+                    .addOnCompleteListener { points->
+                        if(points.isSuccessful)
+                            for(doc2 in points.result!!){
+                                if(doc2.id == docId2){
+
+                                    val email = doc2.data.get("email")
+                                    if(email == mail){
+
+                                        //val points= doc2.data.get("punkty")
+
+                                        binding.guzikDone.setOnClickListener{
+                                            binding.points.text = "Punkty: "+doc2.data.get("maxpunkty").toString() + "/" + doc2.data.get("maxpunkty").toString()
+                                            //points=doc2.data.get("maxpunkty").toString()
+                                        }
+
+                                        val guzik = Button(this)
+                                        guzik.width = 50
+                                        guzik.height = 50
+                                        guzik.text = doc2.data.get("tresc").toString()
+                                        binding.TaskName.text = doc2.data.get("tresc").toString()
+                                        binding.deadline.text = "Termin wykonania: "+doc2.data.get("deadline").toString()
+                                        binding.points.text = "Punkty: "+doc2.data.get("punkty").toString() + "/" + doc2.data.get("maxpunkty").toString()
+
+                                        break
+                                    }
+                                }
+
+                            }
+
+                    }*/
+
+
+
