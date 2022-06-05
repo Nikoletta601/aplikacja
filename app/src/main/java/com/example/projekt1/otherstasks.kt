@@ -85,6 +85,7 @@ class otherstasks: AppCompatActivity(){
                                         var wykonawca = doc2.data.get("wykonawca").toString()
                                         var creator = doc2.data.get("creator").toString()
                                         var doctaskid = doc3.id
+                                        var roomId = doc2.data.get("roomid").toString()
 
                                         guzik.setOnClickListener {
                                             val intent =
@@ -93,6 +94,7 @@ class otherstasks: AppCompatActivity(){
                                             intent.putExtra("wykonawca", wykonawca)// wyslanie danych do pliku z intent
                                             intent.putExtra("creator", creator)
                                             intent.putExtra("taskid", taskid)
+                                            intent.putExtra("roomid", roomId)
                                             intent.putExtra("doctaskid", doctaskid)
 
                                             startActivity(intent)
