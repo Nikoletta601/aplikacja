@@ -60,6 +60,15 @@
             android:name=".Raport"
             android:exported="false" />
         <activity
+            android:name=".otherstasks"
+            android:exported="false" />
+        <activity
+            android:name=".otherstasks_view"
+            android:exported="false" />
+        <activity
+            android:name=".GivePoints"
+            android:exported="false" />
+        <activity
             android:name=".Login"
             android:exported="true">
             <intent-filter>

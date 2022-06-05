@@ -73,6 +73,15 @@
             android:name="com.example.projekt1.Raport"
             android:exported="false" />
         <activity
+            android:name="com.example.projekt1.otherstasks"
+            android:exported="false" />
+        <activity
+            android:name="com.example.projekt1.otherstasks_view"
+            android:exported="false" />
+        <activity
+            android:name="com.example.projekt1.GivePoints"
+            android:exported="false" />
+        <activity
             android:name="com.example.projekt1.Login"
             android:exported="true" >
             <intent-filter>

@@ -1,12 +1,9 @@
 package com.example.projekt1
 
-import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBar
 import androidx.core.view.get
 import com.example.projekt1.databinding.ActivityRaportBinding
@@ -22,7 +19,7 @@ import java.time.format.DateTimeFormatter
 //import java.util.*
 import kotlin.collections.HashMap
 
-class otherstasks : AppCompatActivity(){
+class otherstasks: AppCompatActivity(){
     private lateinit var binding: ActivityOtherstasksBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var actionBar: ActionBar
@@ -33,8 +30,9 @@ class otherstasks : AppCompatActivity(){
     private var docId2 = ""
     private var userid = ""
     private var roomid = ""
+    private var taskid = ""
 
-    var tasksdonearray = ArrayList<String>() //dodanetest
+    //var tasksdonearray = ArrayList<String>() //test
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +45,7 @@ class otherstasks : AppCompatActivity(){
         val firebaseUser = firebaseAuth.currentUser
         if (firebaseUser != null) {
             mail = firebaseUser.email.toString()
-            //TasksList()
+            TasksList()
 
         } else {
             startActivity(Intent(this, Login::class.java))
@@ -55,7 +53,6 @@ class otherstasks : AppCompatActivity(){
         }
 
         binding.guzikBack.setOnClickListener {
-            //powrót do zadania
             startActivity(Intent(this, tasks_menu::class.java))
         }
 
@@ -70,12 +67,14 @@ class otherstasks : AppCompatActivity(){
                     //  val roomid = doc.data.get("room")
                     db.collection("Users").document(userid).collection("Torate").get().addOnCompleteListener { task ->
                         for (doc2 in task.result) {
+                            //zrobic roomid
                             roomid = doc2.data.get("roomid").toString()
+                            taskid = doc2.data.get("taskid").toString()
                             println(roomid)
 
                             db.collection("Rooms").document(roomid).collection("Tasks").get().addOnCompleteListener { task2 ->
                                 for (doc3 in task2.result) {
-                                    if (doc3.id == doc2.id) {
+                                    if (doc3.id == taskid) {
                                         val guzik = Button(this)
                                         guzik.width = 50
                                         guzik.height = 50

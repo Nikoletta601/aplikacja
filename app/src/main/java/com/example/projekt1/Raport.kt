@@ -38,6 +38,7 @@ class Raport : AppCompatActivity() {
     private var creator = ""
     private var creatorid = ""
     private var taskId = ""
+    private var roomid = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -55,7 +56,8 @@ class Raport : AppCompatActivity() {
             taskId = intent.getStringExtra("taskId").toString()
             docId2 = intent.getStringExtra("id2").toString()
             creator = intent.getStringExtra("creator").toString()
-            //Raport()
+            roomid = intent.getStringExtra("roomid").toString()
+        //Raport()
         } else {
             startActivity(Intent(this, Login::class.java))
             finish()
@@ -112,6 +114,7 @@ class Raport : AppCompatActivity() {
                                     task["taskid"] = taskId.toString()
                                     task["wykonawca"] = userid.toString()
                                     task["creator"] = creator
+                                    task["roomid"] = roomid
 
                                     db.collection("Users").document(creatorid).collection("Torate")
                                         .add(task)
