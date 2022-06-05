@@ -23,6 +23,8 @@ class task : AppCompatActivity() {
     private var docId2 =""//task id
     private var roomid = ""
     private var backvalue = "0"
+    private var creator = ""
+
     var tasksdonearray = java.util.ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +62,7 @@ class task : AppCompatActivity() {
             //startActivity(Intent(this, Raport::class.java))
 
                 val intent = Intent(this,Raport::class.java)
-                //intent.putExtra("id",docId)
+                intent.putExtra("creator",creator)
                 intent.putExtra("taskId",docId2)// wyslanie danych do pliku z intent
                 //intent.putExtra("back", "1")
                 //intent.putStringArrayListExtra("tasksdonearray", tasksdonearray)
@@ -78,6 +80,7 @@ class task : AppCompatActivity() {
                 for (doc in it.result!!) {
                     if (doc.id == docId2) {
                         println(doc.id)
+                        creator=doc.data.get("creator").toString()
                         val guzik = Button(this)
                         guzik.width = 50
                         guzik.height = 50

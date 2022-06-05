@@ -88,6 +88,7 @@ class Creattask : AppCompatActivity() {
                         .addOnCompleteListener {
                             val task: MutableMap<String, Any> = HashMap() //stworzenie nowego dokumentu
                             task["creator"] = mail
+                            //task["creatorid"] =
                             task["email"] = email
                             task["maxpunkty"] = binding.taskpunkty.text.toString()
                             task["komentarz"] = binding.tasktresc.text.toString()

@@ -36,6 +36,7 @@ class Raport : AppCompatActivity() {
     private var docId2 = ""
     private var userid = ""
     private var creator = ""
+    private var creatorid = ""
     private var taskId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +54,7 @@ class Raport : AppCompatActivity() {
             docId = intent.getStringExtra("id").toString()
             taskId = intent.getStringExtra("taskId").toString()
             docId2 = intent.getStringExtra("id2").toString()
+            creator = intent.getStringExtra("creator").toString()
             //Raport()
         } else {
             startActivity(Intent(this, Login::class.java))
@@ -96,12 +98,13 @@ class Raport : AppCompatActivity() {
 */
                 db.collection("Users").get().addOnCompleteListener {
                     for (doc in it.result!!) {
-                        userid = doc.id
+                        if (doc.get("email") .toString() == mail.toString()){
+                            userid = doc.id
+                        }
 
-                        if (doc.get("email")
-                                .toString() == mail.toString()
-                        ) {
-                            db.collection("Users").document(userid).collection("Torate")
+                        if(doc.get("email").toString() == creator){
+                            creatorid=doc.id
+                            db.collection("Users").document(creatorid).collection("Torate")
                                 .get()
                                 .addOnCompleteListener {
                                     val task: MutableMap<String, Any> =
@@ -109,9 +112,9 @@ class Raport : AppCompatActivity() {
                                     task["komentarz"] = binding.commentwykonawcy.text.toString()
                                     task["taskid"] = taskId.toString()
                                     task["wykonawca"] = userid.toString()
-                                    //task["creator"] = creator
+                                    task["creator"] = creator
 
-                                    db.collection("Users").document(userid).collection("Torate")
+                                    db.collection("Users").document(creatorid).collection("Torate")
                                         .add(task)
                                 }
 
