@@ -19,11 +19,15 @@ drawable createroom
 drawable ic_launcher_foreground
 drawable joinroom
 drawable logotask
+drawable logout
 drawable pen
 drawable pencil
 drawable plus
+drawable profil
+drawable roommenu
 drawable settings
 drawable tasks
+drawable tasksmenu
 drawable users
 drawable zadaniadone
 drawable zadaniatwoje
@@ -77,6 +81,7 @@ id guzikZadaniaDoOceny
 id guzikZadaniaDone
 id hint
 id komentarz
+id logoutText
 id maxpoints
 id maxpunkty
 id nameEt
@@ -84,6 +89,8 @@ id nameTil
 id passwordEt
 id passwordTil
 id points
+id pokojeText
+id profilText
 id punkty
 id roomJoinEt
 id roomJoinTil
@@ -99,6 +106,7 @@ id taskpunkty
 id tasktime
 id tasktr
 id tasktresc
+id title
 id tlo
 id tytul
 id who

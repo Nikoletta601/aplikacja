@@ -2515,6 +2515,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable joinroom
 drawable logotask
+drawable logout
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
 drawable m3_radiobutton_ripple
@@ -2559,8 +2560,11 @@ drawable notify_panel_notification_icon_bg
 drawable pen
 drawable pencil
 drawable plus
+drawable profil
+drawable roommenu
 drawable settings
 drawable tasks
+drawable tasksmenu
 drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -2865,6 +2869,7 @@ id line3
 id linear
 id listMode
 id list_item
+id logoutText
 id masked
 id match_constraint
 id match_parent
@@ -2964,8 +2969,10 @@ id peekHeight
 id percent
 id pin
 id points
+id pokojeText
 id position
 id postLayout
+id profilText
 id progress_circular
 id progress_horizontal
 id punkty

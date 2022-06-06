@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,40 +10,109 @@
 
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zalogowano pomyślnie poprzez e-mail:"/>
+        android:text="Zalogowano pomyślnie poprzez e-mail:"
+        />
     <TextView
         android:id="@+id/emailTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/title"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:layout_marginBottom="50sp"
         android:text="Email"/>
 
 
-    <Button
+    <ImageView
         android:id="@+id/guzikShowMyRooms"
-        android:layout_width="151dp"
+        android:layout_below="@id/emailTV"
+        android:text="Moje pokoje"
+        android:src="@drawable/roommenu"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginLeft="20pt"/>
+    <TextView
+        android:id="@+id/pokojeText"
+        android:layout_below="@id/guzikShowMyRooms"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="32pt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Moje pokoje" />
+        android:text="Pokoje"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="20sp" />
 
-    <Button
+    <ImageView
         android:id="@+id/guzikShowMyTasks"
-        android:layout_width="151dp"
+        android:text="Moje zadania"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/emailTV"
+        android:src="@drawable/tasksmenu"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginRight="20pt"/>
+    <TextView
+        android:id="@+id/zadaniaText"
+        android:layout_below="@id/guzikShowMyTasks"
+        android:layout_marginRight="30pt"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Moje zadania" />
+        android:text="Zadania"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="20sp" />
 
-    <Button
+    <ImageView
         android:id="@+id/guzikEditProfile"
+        android:layout_alignParentLeft="true"
+        android:text="Edytuj profil"
+        android:layout_below="@id/zadaniaText"
+        android:src="@drawable/profil"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20pt" />
+    <TextView
+        android:id="@+id/profilText"
+        android:layout_below="@id/guzikEditProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edytuj profil" />
+        android:text="Edytuj profil"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="25pt"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="20sp" />
 
-    <Button
+    <ImageView
         android:id="@+id/guzikWyloguj"
+        android:text="Wyloguj"
+        android:layout_below="@id/zadaniaText"
+        android:src="@drawable/logout"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20pt"/>
+
+    <TextView
+        android:id="@+id/logoutText"
+        android:layout_below="@id/guzikWyloguj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wyloguj"/>
+        android:text="Wyloguj"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:textSize="20sp"
+        android:layout_marginBottom="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30pt"/>
 
-</LinearLayout>
+</RelativeLayout>

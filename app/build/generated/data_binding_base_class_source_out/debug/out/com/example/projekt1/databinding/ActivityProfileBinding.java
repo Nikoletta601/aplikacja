@@ -4,8 +4,8 @@ package com.example.projekt1.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,37 +18,59 @@ import java.lang.String;
 
 public final class ActivityProfileBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final RelativeLayout rootView;
 
   @NonNull
   public final TextView emailTV;
 
   @NonNull
-  public final Button guzikEditProfile;
+  public final ImageView guzikEditProfile;
 
   @NonNull
-  public final Button guzikShowMyRooms;
+  public final ImageView guzikShowMyRooms;
 
   @NonNull
-  public final Button guzikShowMyTasks;
+  public final ImageView guzikShowMyTasks;
 
   @NonNull
-  public final Button guzikWyloguj;
+  public final ImageView guzikWyloguj;
 
-  private ActivityProfileBinding(@NonNull LinearLayout rootView, @NonNull TextView emailTV,
-      @NonNull Button guzikEditProfile, @NonNull Button guzikShowMyRooms,
-      @NonNull Button guzikShowMyTasks, @NonNull Button guzikWyloguj) {
+  @NonNull
+  public final TextView logoutText;
+
+  @NonNull
+  public final TextView pokojeText;
+
+  @NonNull
+  public final TextView profilText;
+
+  @NonNull
+  public final TextView title;
+
+  @NonNull
+  public final TextView zadaniaText;
+
+  private ActivityProfileBinding(@NonNull RelativeLayout rootView, @NonNull TextView emailTV,
+      @NonNull ImageView guzikEditProfile, @NonNull ImageView guzikShowMyRooms,
+      @NonNull ImageView guzikShowMyTasks, @NonNull ImageView guzikWyloguj,
+      @NonNull TextView logoutText, @NonNull TextView pokojeText, @NonNull TextView profilText,
+      @NonNull TextView title, @NonNull TextView zadaniaText) {
     this.rootView = rootView;
     this.emailTV = emailTV;
     this.guzikEditProfile = guzikEditProfile;
     this.guzikShowMyRooms = guzikShowMyRooms;
     this.guzikShowMyTasks = guzikShowMyTasks;
     this.guzikWyloguj = guzikWyloguj;
+    this.logoutText = logoutText;
+    this.pokojeText = pokojeText;
+    this.profilText = profilText;
+    this.title = title;
+    this.zadaniaText = zadaniaText;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public RelativeLayout getRoot() {
     return rootView;
   }
 
@@ -80,31 +102,62 @@ public final class ActivityProfileBinding implements ViewBinding {
       }
 
       id = R.id.guzikEditProfile;
-      Button guzikEditProfile = ViewBindings.findChildViewById(rootView, id);
+      ImageView guzikEditProfile = ViewBindings.findChildViewById(rootView, id);
       if (guzikEditProfile == null) {
         break missingId;
       }
 
       id = R.id.guzikShowMyRooms;
-      Button guzikShowMyRooms = ViewBindings.findChildViewById(rootView, id);
+      ImageView guzikShowMyRooms = ViewBindings.findChildViewById(rootView, id);
       if (guzikShowMyRooms == null) {
         break missingId;
       }
 
       id = R.id.guzikShowMyTasks;
-      Button guzikShowMyTasks = ViewBindings.findChildViewById(rootView, id);
+      ImageView guzikShowMyTasks = ViewBindings.findChildViewById(rootView, id);
       if (guzikShowMyTasks == null) {
         break missingId;
       }
 
       id = R.id.guzikWyloguj;
-      Button guzikWyloguj = ViewBindings.findChildViewById(rootView, id);
+      ImageView guzikWyloguj = ViewBindings.findChildViewById(rootView, id);
       if (guzikWyloguj == null) {
         break missingId;
       }
 
-      return new ActivityProfileBinding((LinearLayout) rootView, emailTV, guzikEditProfile,
-          guzikShowMyRooms, guzikShowMyTasks, guzikWyloguj);
+      id = R.id.logoutText;
+      TextView logoutText = ViewBindings.findChildViewById(rootView, id);
+      if (logoutText == null) {
+        break missingId;
+      }
+
+      id = R.id.pokojeText;
+      TextView pokojeText = ViewBindings.findChildViewById(rootView, id);
+      if (pokojeText == null) {
+        break missingId;
+      }
+
+      id = R.id.profilText;
+      TextView profilText = ViewBindings.findChildViewById(rootView, id);
+      if (profilText == null) {
+        break missingId;
+      }
+
+      id = R.id.title;
+      TextView title = ViewBindings.findChildViewById(rootView, id);
+      if (title == null) {
+        break missingId;
+      }
+
+      id = R.id.zadaniaText;
+      TextView zadaniaText = ViewBindings.findChildViewById(rootView, id);
+      if (zadaniaText == null) {
+        break missingId;
+      }
+
+      return new ActivityProfileBinding((RelativeLayout) rootView, emailTV, guzikEditProfile,
+          guzikShowMyRooms, guzikShowMyTasks, guzikWyloguj, logoutText, pokojeText, profilText,
+          title, zadaniaText);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
