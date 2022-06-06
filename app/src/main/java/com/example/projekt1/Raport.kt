@@ -57,7 +57,6 @@ class Raport : AppCompatActivity() {
                     }
                 }
             }
-                //Raport()
             } else {
                 startActivity(Intent(this, Login::class.java))
                 finish()
@@ -83,11 +82,6 @@ class Raport : AppCompatActivity() {
 
             db.collection("Users").get().addOnCompleteListener {
                 for (doc in it.result!!) {
-                    /* //if (doc.data.get("email").toString() == firebaseAuth.currentUser?.email.toString()){
-                        if (doc.get("email") .toString() == mail.toString()){
-                            userId = doc.id
-                        }
-*/
                     if (doc.get("email").toString() == creator) {
                         creatorid = doc.id
                         db.collection("Users").document(creatorid).collection("Torate")

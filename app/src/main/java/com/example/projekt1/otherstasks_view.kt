@@ -28,6 +28,7 @@ class otherstasks_view : AppCompatActivity() {
     private var roomId = ""
     private var maxpoints= ""
     private var dataoddania= ""
+    private var nickwykonawcy= ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +50,16 @@ class otherstasks_view : AppCompatActivity() {
             dataoddania = intent.getStringExtra("dataoddania").toString()
             Task()
 
-            binding.wykonawca.text = "Wykonawca: " + wykonawca
+            val db = FirebaseFirestore.getInstance()
+            val result: StringBuffer = StringBuffer()
+            db.collection("Users").get().addOnCompleteListener {
+                for (doc in it.result!!) {
+                if(doc.id==wykonawca)
+                    nickwykonawcy=doc.data.get("username").toString()
+                    binding.wykonawca.text = "Wykonawca: " +nickwykonawcy
+                }
+            }
+
             binding.Wykonawcacomment.text = "Wiadomosc od wykonawcy: " + komentarzwykonawcy
             binding.dataoddania.text="Data wykonania: "+dataoddania
         } else {

@@ -44,6 +44,8 @@ class taskdone_view : AppCompatActivity() {
             dataWykonania=intent.getStringExtra("dataWykonania").toString()
             dataOceny=intent.getStringExtra("dataOceny").toString()
 
+
+
             binding.dataWykonania.text="Oddano: "+dataWykonania
             binding.dataOceny.text="Oceniono: "+dataOceny
 
